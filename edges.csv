@@ -1,0 +1,59 @@
+source,target,relationship,course,since,strength,type,department
+Alice,Bob,student-teacher,CS101,2023,0.8,directed,
+Alice,Carol,friends,,2022,0.9,bidirectional,
+Bob,David,colleagues,,2020,0.7,bidirectional,Computer Science
+Carol,David,student-teacher,CS201,2023,0.6,directed,
+Eve,Bob,student-teacher,MATH101,2023,0.8,directed,
+Alice,Eve,friends,,2021,0.7,bidirectional,
+Frank,Carol,student-teacher,PHYS101,2023,0.9,directed,
+Grace,David,student-teacher,CS301,2023,0.7,directed,
+Grace,Alice,friends,,2022,0.8,bidirectional,
+Henry,Eve,student-teacher,MATH201,2023,0.6,directed,
+Henry,Bob,colleagues,,2019,0.8,bidirectional,Mathematics
+Iris,Frank,student-teacher,PHYS201,2023,0.7,directed,
+Iris,Carol,friends,,2021,0.9,bidirectional,
+Jack,Grace,student-teacher,CS401,2023,0.8,directed,
+Jack,David,colleagues,,2018,0.9,bidirectional,Computer Science
+Kate,Henry,student-teacher,MATH301,2023,0.7,directed,
+Kate,Eve,friends,,2022,0.8,bidirectional,
+Liam,Iris,student-teacher,PHYS301,2023,0.6,directed,
+Liam,Frank,colleagues,,2020,0.7,bidirectional,Physics
+Maya,Jack,student-teacher,CS501,2023,0.9,directed,
+Maya,Grace,friends,,2021,0.8,bidirectional,
+Noah,Kate,student-teacher,MATH401,2023,0.7,directed,
+Noah,Henry,colleagues,,2019,0.8,bidirectional,Mathematics
+Olivia,Liam,student-teacher,PHYS401,2023,0.8,directed,
+Olivia,Iris,friends,,2022,0.7,bidirectional,
+Paul,Maya,student-teacher,CS601,2023,0.6,directed,
+Paul,Jack,colleagues,,2017,0.9,bidirectional,Computer Science
+Quinn,Noah,student-teacher,MATH501,2023,0.8,directed,
+Quinn,Kate,friends,,2021,0.9,bidirectional,
+Ruby,Olivia,student-teacher,PHYS501,2023,0.7,directed,
+Ruby,Liam,colleagues,,2021,0.8,bidirectional,Physics
+Sam,Paul,student-teacher,CS701,2023,0.9,directed,
+Sam,Maya,friends,,2022,0.8,bidirectional,
+Tina,Quinn,student-teacher,MATH601,2023,0.7,directed,
+Tina,Noah,colleagues,,2020,0.8,bidirectional,Mathematics
+Uma,Ruby,student-teacher,PHYS601,2023,0.8,directed,
+Uma,Olivia,friends,,2021,0.9,bidirectional,
+Alice,Maya,friends,,2023,0.6,bidirectional,
+Bob,Henry,colleagues,,2018,0.7,bidirectional,Mathematics
+Carol,Iris,friends,,2022,0.8,bidirectional,
+David,Jack,colleagues,,2019,0.8,bidirectional,Computer Science
+Eve,Kate,friends,,2023,0.7,bidirectional,
+Frank,Liam,colleagues,,2020,0.9,bidirectional,Physics
+Grace,Sam,friends,,2022,0.8,bidirectional,
+Henry,Tina,colleagues,,2019,0.7,bidirectional,Mathematics
+Iris,Uma,friends,,2023,0.6,bidirectional,
+Jack,Paul,colleagues,,2018,0.8,bidirectional,Computer Science
+Kate,Quinn,friends,,2022,0.9,bidirectional,
+Liam,Ruby,colleagues,,2021,0.7,bidirectional,Physics
+Maya,Sam,friends,,2023,0.8,bidirectional,
+Noah,Tina,colleagues,,2020,0.8,bidirectional,Mathematics
+Olivia,Uma,friends,,2022,0.7,bidirectional,
+Alice,Grace,friends,,2021,0.8,bidirectional,
+Bob,Noah,colleagues,,2019,0.7,bidirectional,Mathematics
+Carol,Olivia,friends,,2023,0.6,bidirectional,
+David,Paul,colleagues,,2018,0.9,bidirectional,Computer Science
+Eve,Quinn,friends,,2022,0.8,bidirectional,
+Frank,Ruby,colleagues,,2020,0.8,bidirectional,Physics 

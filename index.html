@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-- This tells the browser this is an HTML5 document -->
+<html lang="en">
+<!-- The html tag is the root element that contains everything on the page -->
+<!-- lang="en" tells the browser this page is in English -->
+
+<head>
+  <!-- The head section contains information about the page, not visible content -->
+  
+  <!-- Load D3.js library from CDN (Content Delivery Network) -->
+  <!-- D3.js is a JavaScript library for creating data visualizations -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  
+  <!-- Set the character encoding to UTF-8 (supports special characters and emojis) -->
+  <meta charset="UTF-8">
+  
+  <!-- This is the title that appears in the browser tab -->
+  <title>Compuational Design Practices</title>
+  
+  <!-- Load the Roboto font from Google Fonts for use on our page -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <!-- Link our CSS file to style the page -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- The body contains all the visible content that users will see on the page -->
+  
+  <!-- Header section at the top of the page -->
+  <header>
+    <!-- Left side of header - institution name -->
+    <div class="left">Columbia GSAPP</div>
+    
+    <!-- Center of header - main title and subtitle -->
+    <div class="center">
+      Computational Design Practices<br>
+      <!-- <br> creates a line break, moving the next text to a new line -->
+      <span>Colloquium 1 Summer 2025</span>
+      <!-- span is an inline element that groups text without creating a new line -->
+    </div>
+    
+    <!-- Right side of header - student name -->
+    <div class="right">Student Name</div>
+  </header>
+
+  <!-- Main content area -->
+  <main>
+    <!-- Main title of the research project -->
+    <div class="project-title-main">Research Foundations + Project Outline</div>
+
+    <!-- Research question section -->
+    <div class="project-title">Research question(s)</div>
+    <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    
+    <!-- Keywords section -->
+    <div class="project-title">Keywords (6)</div>
+    <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    
+    <!-- Intersecting fields section -->
+    <div class="project-title">3 Intersecting Fields</div>
+    <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    
+    <!-- Historical lineage section -->
+    <div class="project-title">Historical Lineage</div>
+    <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    
+    <!-- Community of practice section -->
+    <div class="project-title">My Community of Practice</div>
+    <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    
+    <!-- Situated technology section -->
+    <div class="project-title">Situated Technology</div>
+    <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    
+    <!-- Methods section -->
+    <div class="project-title">Methods</div>
+    <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    
+    <!-- Computational design experiments section -->
+    <div class="project-title">Computational Design Experiments</div>
+    <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    
+    <!-- Network Graph Visualization - this is a subsection under Computational Design Experiments -->
+    <div class="project-title-subsection">Network Graph Visualization</div>
+    <!-- This div will contain the interactive network graph created by JavaScript -->
+    <div id="d3-container-2"></div>
+    
+    <!-- Visual representation section -->
+    <div class="project-title">Visual Representation</div>
+    <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    
+    <!-- Rhetorical argument section -->
+    <div class="project-title">Rhetorical Argument</div>
+    <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    
+    <!-- Capstone project outline section -->
+    <div class="project-title">Brief Outline of a Potential Capstone Project</div>
+    <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    
+    <!-- The challenge section -->
+    <div class="project-title">The Challenge</div>
+    <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    
+  </main>
+
+  <!-- Load our JavaScript file that creates the network graph -->
+  <script src="graph-from-csv.js"></script>
+
+</body>
+<!-- End of body - all visible content goes above this line -->
+</html>
+<!-- End of HTML document -->

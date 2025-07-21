@@ -1,0 +1,22 @@
+id,name,role,age,department,friends,size,color
+Alice,Alice Johnson,student,22,Computer Science,15,25,#ff6b6b
+Bob,Bob Smith,professor,45,Mathematics,8,35,#4ecdc4
+Carol,Carol Davis,student,20,Physics,12,22,#ff6b6b
+David,David Wilson,professor,38,Computer Science,10,32,#4ecdc4
+Eve,Eve Brown,student,21,Mathematics,18,28,#ff6b6b
+Frank,Frank Miller,professor,52,Physics,6,40,#4ecdc4
+Grace,Grace Lee,student,19,Computer Science,20,24,#ff6b6b
+Henry,Henry Chen,professor,41,Mathematics,12,34,#4ecdc4
+Iris,Iris Rodriguez,student,23,Physics,14,26,#ff6b6b
+Jack,Jack Thompson,professor,47,Computer Science,9,36,#4ecdc4
+Kate,Kate Williams,student,20,Mathematics,16,23,#ff6b6b
+Liam,Liam O'Connor,professor,39,Physics,11,33,#4ecdc4
+Maya,Maya Patel,student,22,Computer Science,17,27,#ff6b6b
+Noah,Noah Garcia,professor,44,Mathematics,7,37,#4ecdc4
+Olivia,Olivia Taylor,student,21,Physics,13,25,#ff6b6b
+Paul,Paul Anderson,professor,50,Computer Science,8,38,#4ecdc4
+Quinn,Quinn Martinez,student,19,Mathematics,19,22,#ff6b6b
+Ruby,Ruby Johnson,professor,36,Physics,14,31,#4ecdc4
+Sam,Sam Davis,student,24,Computer Science,15,29,#ff6b6b
+Tina,Tina Wang,professor,43,Mathematics,10,35,#4ecdc4
+Uma,Uma Singh,student,20,Physics,18,24,#ff6b6b 
