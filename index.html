@@ -51,19 +51,259 @@
 
     <!-- Research question section -->
     <div class="project-title">Research question(s)</div>
-    <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    <div class="section-content">
+      <ul>
+        <li>Does human free will exist in the digital age?</li>
+        <li>If so, how can it be protected?</li>
+        <li>Can computer predict the decision making process of biological entities?</li>
+        <li>Can Human brain can be simulated?</li>
+        <li>How could the activity of neurons can be simulated in both aesthetic and eligible</li>
+        
+      </ul>
+    </div>
     
     <!-- Keywords section -->
     <div class="project-title">Keywords (6)</div>
-    <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    <div class="section-content">
+      #BrainSimulation #FreeWill #ComputationalNeuroscience #DecisionMaking #NeuralNetworks #DigitalEthics
+    </div>
     
     <!-- Intersecting fields section -->
     <div class="project-title">3 Intersecting Fields</div>
-    <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    <div class="section-content">
+      <ul>
+        <li>Neuroscience</li>
+        <li>Security</li>
+        <li>Computational Simulation</li>
+      </ul>
+    </div>
     
     <!-- Historical lineage section -->
     <div class="project-title">Historical Lineage</div>
-    <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    <div class="section-content">
+      The study of neural networks traces back to the foundational work on <em>C. elegans</em>, 
+      the first organism to have its complete connectome mapped. This 302-neuron nervous system 
+      serves as a crucial reference point for understanding how biological neural networks 
+      process information and make decisions.
+      
+      <!-- C. elegans Connectome Visualization -->
+      <div class="project-title-subsection">C. elegans Connectome</div>
+      
+      <!-- Interactive Controls and Legend -->
+      <div id="controls-container">
+        <div class="control-group">
+          <label for="neurotransmitter-filter">Neurotransmitter Filter:</label>
+          <select id="neurotransmitter-filter">
+            <option value="all">All</option>
+            <option value="exc">Excitatory</option>
+            <option value="inh">Inhibitory</option>
+            <option value="ach">Acetylcholine</option>
+            <option value="gaba">GABA</option>
+            <option value="glu">Glutamate</option>
+            <option value="da">Dopamine</option>
+            <option value="ser">Serotonin</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="connection-strength">Min Connection Strength:</label>
+          <input type="range" id="connection-strength" min="1" max="20" value="1">
+          <span id="strength-value">1</span>
+        </div>
+        <div class="control-group">
+          <button id="reset-camera">Reset Camera</button>
+          <button id="toggle-labels">Toggle Labels</button>
+        </div>
+        
+        <!-- Integrated Legend -->
+        <div class="control-group legend-group">
+          <label>Neurotransmitter Legend:</label>
+          <div id="legend-container">
+            <div class="legend-item">
+              <div class="legend-color" style="background-color: #ff0000;"></div>
+              <span>Excitatory (exc)</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color" style="background-color: #0000ff;"></div>
+              <span>Inhibitory (inh)</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color" style="background-color: #00ff00;"></div>
+              <span>Acetylcholine (ach)</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color" style="background-color: #ffff00;"></div>
+              <span>GABA (gaba)</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color" style="background-color: #ff00ff;"></div>
+              <span>Glutamate (glu)</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color" style="background-color: #00ffff;"></div>
+              <span>Dopamine (da)</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color" style="background-color: #ffa500;"></div>
+              <span>Serotonin (ser)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="connectome-container">
+        <svg id="network-svg"></svg>
+      </div>
+      
+      <!-- YouTube Video -->
+      <div class="project-title-subsection">Connectome and Behavior Control</div>
+      <div class="video-container">
+        <iframe 
+          width="560" 
+          height="315" 
+          src="https://www.youtube.com/embed/c-86OQgcMTM" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="video-caption">
+        Understanding the connectome enables us to control behavior and decision-making processes in biological entities.
+      </p>
+      
+      <!-- Early Research on Free Will and Prediction -->
+      <div class="project-title-subsection">Challenging Human Free Will: Choice Prediction Research</div>
+      <div class="section-content">
+        <p>
+          Scientific research challenging human free will has been conducted for many years already. 
+          The groundbreaking study by Soon et al. published in Nature Neuroscience in 2008<sup><a href="https://pubmed.ncbi.nlm.nih.gov/18408715/">[1]</a></sup> 
+          discovered that human choices could be predicted through brain activity <strong>up to 10 seconds before</strong> 
+          a person consciously decided to press a button. This research analyzed activity in the prefrontal 
+          and parietal cortex regions, demonstrating that the brain was already preparing decisions 
+          long before conscious awareness occurred.
+        </p>
+        <p>
+          Furthermore, follow-up research published in Scientific Reports in 2019<sup><a href="https://www.nature.com/articles/s41598-019-39813-y">[2]</a></sup> 
+          demonstrated that more sophisticated machine learning algorithms could predict human choices 
+          with even higher accuracy. These studies raise profound philosophical and scientific questions 
+          about whether the conscious decisions we consider 'free' might actually be the result of 
+          unconscious brain activity.
+        </p>
+        <p>
+          Research beginning in <strong>2008 and 2019</strong> has suggested that human decision-making 
+          processes may be far more deterministic than we think. The current development of brain 
+          simulation and AI technology in the digital age makes these questions increasingly realistic 
+          and urgent concerns.
+        </p>
+        <div style="margin: 15px 0; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff; font-size: 12px; color: #666;">
+          <strong>References:</strong><br>
+          [1] Soon, C. S., Brass, M., Heinze, H. J., & Haynes, J. D. (2008). Unconscious determinants of free decisions in the human brain. <em>Nature Neuroscience</em>, 11(5), 543-545.<br>
+          [2] Schurger, A., & Sitt, J. D. (2019). An accumulator model for spontaneous neural activity prior to self-initiated movement. <em>Scientific Reports</em>, 9, 13577.
+        </div>
+      </div>
+      
+      <!-- Brain Simulation: From In Vivo to In Silico -->
+      <div class="project-title-subsection">Brain Simulation: From In Vivo to In Silico</div>
+      <div class="section-content">
+        <p>
+          What I find particularly noteworthy is that biological research has progressed beyond the traditional 
+          <em>in vivo</em> (in living organisms) and <em>in vitro</em> (in laboratory conditions) approaches 
+          to the <strong>in silico</strong> stage—simulation within computers. This represents a fundamental 
+          paradigm shift in how we study and understand biological systems.
+        </p>
+        <p>
+          Attempts to transfer and simulate the human brain in computers have been underway for a long time. 
+          Major international research initiatives demonstrate the global commitment to this ambitious goal:
+        </p>
+        
+        <!-- Brain Research Institutions Grid -->
+        <div class="institutions-grid">
+          <!-- Row 1 -->
+          <div class="institution-card">
+            <div class="institution-image">
+              <img src="src/img/Historical_Lineage/Human Brain Project.png" alt="Human Brain Project" />
+            </div>
+            <div class="institution-content">
+              <h4><a href="https://www.humanbrainproject.eu/en/" target="_blank">Human Brain Project (HBP)</a></h4>
+              <p>A European flagship project (2013-2023) that pioneered digital neuroscience, creating computational models and simulations of brain circuits and regions.</p>
+            </div>
+          </div>
+          
+          <div class="institution-card">
+            <div class="institution-image">
+              <img src="src/img/Historical_Lineage/Blue Brain Project.jpg" alt="Blue Brain Project" />
+            </div>
+            <div class="institution-content">
+              <h4><a href="https://bluebrain.epfl.ch/bbp/research/domains/bluebrain/" target="_blank">Blue Brain Project</a></h4>
+              <p>Led by EPFL, this Swiss initiative developed algorithms to build biologically faithful digital copies of brain circuits, including detailed neuron morphologies and connectomes.</p>
+            </div>
+          </div>
+          
+          <!-- Row 2 -->
+          <div class="institution-card">
+            <div class="institution-image">
+              <img src="src/img/Historical_Lineage/Ebrain.jpg" alt="EBRAINS" />
+            </div>
+            <div class="institution-content">
+              <h4><a href="https://www.ebrains.eu/" target="_blank">EBRAINS</a></h4>
+              <p>An open research infrastructure providing data, tools, and computing facilities for brain-related research, enabling researchers worldwide to build and simulate neural networks.</p>
+            </div>
+          </div>
+          
+          <div class="institution-card">
+            <div class="institution-image">
+              <img src="src/img/Historical_Lineage/Open Brain Institute.png" alt="Open Brain Institute" />
+            </div>
+            <div class="institution-content">
+              <h4><a href="https://www.openbraininstitute.org/" target="_blank">Open Brain Institute</a></h4>
+              <p>A foundation supporting the global community in utilizing simulation neuroscience to study the brain and its diseases through virtual neuroscience labs.</p>
+            </div>
+          </div>
+        </div>
+        
+        <p style="margin-top: 30px;">
+          These projects represent more than technological achievements—they embody a new scientific methodology 
+          where <strong>computational simulation becomes a primary research tool</strong> alongside traditional 
+          experimental approaches. The ability to create digital replicas of neural circuits, test hypotheses 
+          in silico, and simulate brain functions at multiple scales opens unprecedented possibilities for 
+          understanding consciousness, decision-making, and the very nature of mind.
+        </p>
+        <div style="margin: 15px 0; padding: 10px; background-color: #f0f8ff; border-left: 4px solid #4CAF50; font-size: 14px; color: #555;">
+          <strong>In Silico Revolution:</strong> The transition from studying brains in living organisms (in vivo) 
+          and laboratory dishes (in vitro) to computer simulations (in silico) represents a fundamental shift 
+          in neuroscience methodology, enabling researchers to explore questions about consciousness and free will 
+          that were previously impossible to investigate experimentally.
+        </div>
+      </div>
+      
+      <!-- Neurosecurity: Protecting Free Will in the Digital Age -->
+      <div class="project-title-subsection">Neurosecurity: Protecting Free Will in the Digital Age</div>
+      <div class="section-content">
+        <p>
+          As our understanding of neural mechanisms deepens and brain-computer interfaces become more sophisticated, 
+          a new field has emerged to address the critical need for protecting human cognitive autonomy. 
+          <strong>Neurosecurity</strong> represents the intersection of neuroscience, cybersecurity, and ethics, 
+          focusing on safeguarding the most fundamental aspects of human identity and decision-making.
+        </p>
+        <blockquote style="margin: 20px 0; padding: 15px 20px; background-color: #f8f9fa; border-left: 4px solid #007bff; font-style: italic; color: #495057;">
+          "The protection of the confidentiality, integrity, and availability of neural devices from malicious parties with the goal of preserving the safety of a person's neural mechanisms, neural computation, and free will"
+          <footer style="margin-top: 10px; font-style: normal; font-size: 12px; color: #666;">
+            — <cite>Ienca, M., & Haselager, P. (2016). Hacking the brain: brain-computer interfacing technology and the ethics of neurosecurity. <em>Neurosurgical Focus</em>, 40(5), E13.</cite><sup><a href="https://thejns.org/focus/view/journals/neurosurg-focus/27/1/article-pE7.xml">[3]</a></sup>
+          </footer>
+        </blockquote>
+        <p>
+          This definition encapsulates the urgent need to develop protective measures as neural technologies 
+          advance and become more integrated into daily life.
+        </p>
+        <p>
+          The historical trajectory from early connectome mapping through advanced brain simulation 
+          to predictive decision algorithms culminates in this critical question: <strong>How do we 
+          preserve human agency in an age where thoughts and decisions can be monitored, predicted, 
+          and potentially influenced?</strong> Neurosecurity emerges not just as a technical challenge, 
+          but as a fundamental requirement for maintaining human dignity and autonomy in the digital age.
+        </p>
+      </div>
+    </div>
     
     <!-- Community of practice section -->
     <div class="project-title">My Community of Practice</div>
@@ -104,8 +344,24 @@
     
   </main>
 
-  <!-- Load our JavaScript file that creates the network graph -->
-  <script src="graph-from-csv.js"></script>
+  <!-- Load our JavaScript files that create the network graphs -->
+  <script src="js/graph-from-csv.js"></script>
+  <script src="js/connectome-visualizer.js"></script>
+  
+  <!-- Initialize the connectome visualizer -->
+  <script>
+    // Initialize the connectome visualizer when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      // connectome-container가 존재하는지 확인 후 한 번만 초기화
+      if (document.getElementById('connectome-container') && !window.connectomeInitialized) {
+        window.connectomeInitialized = true; // 중복 초기화 방지 플래그
+        setTimeout(() => {
+          // Use the existing ConnectomeVisualizer class
+          new ConnectomeVisualizer();
+        }, 100);
+      }
+    });
+  </script>
 
 </body>
 <!-- End of body - all visible content goes above this line -->

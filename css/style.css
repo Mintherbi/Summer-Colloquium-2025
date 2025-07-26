@@ -46,11 +46,12 @@ header .center span {
   color: #888;                        /* Set text color to medium gray */
 }
 
-/* Style links in the right section of the header */
-header .right a {
-  color: #000;                        /* Set link color to black */
+/* Style the right section of the header */
+header .right {
+  color: #000;                        /* Set text color to black */
   text-decoration: none;              /* Remove the underline from links */
   font-weight: 400;                   /* Set font weight to normal */
+  cursor: pointer;                    /* Show pointer cursor on hover */
 }
 
 /* ============================================================================
@@ -109,6 +110,13 @@ main {
   margin-bottom: 24px;                /* Add 24 pixels of space below this element */
 }
 
+/* Style the advisor information */
+.advisor {
+  font-size: 14px;                    /* Set font size to 14 pixels */
+  margin-bottom: 40px;                /* Add 40 pixels of space below this element */
+  color: #333;                        /* Set text color to dark gray */
+}
+
 /* ============================================================================
    CONTENT STYLING
    ============================================================================ */
@@ -122,6 +130,14 @@ main {
   color: #333;                        /* Set text color to dark gray */
 }
 
+/* Style all paragraph elements */
+p {
+  font-size: 16px;                    /* Set font size to 16 pixels */
+  line-height: 1.6;                   /* Set line height for readability */
+  margin-bottom: 24px;                /* Add 24 pixels of space below */
+  color: #333;                        /* Set text color to dark gray */
+}
+
 /* ============================================================================
    NETWORK GRAPH STYLING
    ============================================================================ */
@@ -130,11 +146,372 @@ main {
 #d3-container-2 {
   width: 100%;                        /* Make the container take full width */
   height: 400px;                      /* Set the height to 400 pixels */
-  margin: 20px 0;                     /* Add 20px top/bottom margin */
+  margin: 40px 0;                     /* Add 40px top/bottom margin */
   margin-left: 20px;                  /* Add 20px left margin (indentation) */
-  border: 1px solid #ddd;             /* Add a light gray border around the container */
+  border: 1px solid #eee;             /* Add a light gray border around the container */
   border-radius: 4px;                 /* Add slightly rounded corners */
-  background-color: #f0f0f0;         /* Set background color to light gray */
+  background-color: #f9f9f9;         /* Set background color to very light gray */
+  position: relative;                 /* Ensure proper positioning */
+  z-index: 1;                         /* Set z-index to prevent overlap */
+  overflow: hidden;                   /* Hide overflow content */
+}
+
+/* Style the connectome container */
+#connectome-container {
+  width: 100%;                        /* Make the container take full width */
+  height: 600px;                      /* Restore original height for vertical layout */
+  margin: 40px 0;                     /* Add 40px top/bottom margin */
+  margin-left: 20px;                  /* Add 20px left margin (indentation) */
+  border: 1px solid #eee;             /* Add a light gray border around the container */
+  border-radius: 4px;                 /* Add slightly rounded corners */
+  background-color: #f9f9f9;         /* Set background color to very light gray */
+  position: relative;                 /* Ensure proper positioning */
+  z-index: 1;                         /* Set z-index to prevent overlap */
+  clear: both;                        /* Clear any floating elements */
+  overflow: hidden;                   /* Hide overflow content */
+}
+
+#network-svg {
+  width: 100%;
+  height: 100%;
+  display: block;                     /* Ensure proper block display */
+  background: radial-gradient(circle, #1a202c 0%, #0f1419 100%); /* Dark gradient background */
+}
+
+/* Interactive Controls Styling */
+#controls-container {
+  margin: 40px 0;                     /* Add 40px top/bottom margin */
+  margin-left: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  position: relative;                 /* Ensure proper positioning */
+  z-index: 2;                         /* Higher z-index for controls */
+  clear: both;                        /* Clear any floating elements */
+}
+
+.control-group {
+  margin-bottom: 20px;
+}
+
+.control-group:last-child {
+  margin-bottom: 0;
+}
+
+.control-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+}
+
+.control-group select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 14px;
+  color: #333;
+}
+
+.control-group input[type="range"] {
+  width: calc(100% - 50px);
+  margin-right: 10px;
+}
+
+#strength-value {
+  font-weight: 700;
+  color: #333;
+  font-size: 14px;
+}
+
+/* Button styling */
+button {
+  background-color: #111;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+button:last-child {
+  margin-right: 0;
+}
+
+/* Legend Styling */
+.legend-section {
+  margin: 40px 0;                     /* Add 40px top/bottom margin */
+  margin-left: 20px;
+  position: relative;                 /* Ensure proper positioning */
+  z-index: 1;                         /* Set z-index to prevent overlap */
+  clear: both;                        /* Clear any floating elements */
+}
+
+/* Legend styling within controls */
+.legend-group {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}
+
+.legend-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #333;
+}
+
+#legend-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
+.legend-color {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-right: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Selected Neuron Information */
+#node-info {
+  margin: 40px 0;                     /* Add 40px top/bottom margin */
+  margin-left: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  position: relative;                 /* Ensure proper positioning */
+  z-index: 1;                         /* Set z-index to prevent overlap */
+  clear: both;                        /* Clear any floating elements */
+}
+
+#node-details {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #111;
+}
+
+/* ============================================================================
+   MEDIA CONTAINER (SIDE-BY-SIDE LAYOUT)
+   ============================================================================ */
+
+/* Container for side-by-side layout of video and connectome */
+.media-container {
+  display: flex;
+  gap: 30px;
+  margin: 20px 0;
+  align-items: flex-start;
+}
+
+/* Video section (left side) */
+.video-section {
+  flex: 1;
+  min-width: 0; /* Prevent flex item from overflowing */
+}
+
+/* Connectome section (right side) */
+.connectome-section {
+  flex: 1;
+  min-width: 0; /* Prevent flex item from overflowing */
+}
+
+/* Title within connectome section */
+.connectome-title {
+  font-size: 18px;
+  font-weight: 400;
+  color: #666;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Video caption styling */
+.video-caption {
+  margin: 15px 0 0 20px;              /* Match video container indentation */
+  font-style: italic;
+  color: #666;
+  font-size: 14px;
+}
+
+/* ============================================================================
+   INSTITUTIONS GRID STYLING
+   ============================================================================ */
+
+/* 2x2 Grid for brain research institutions */
+.institutions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin: 30px 0;
+  padding: 0 20px;
+}
+
+.institution-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.institution-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.institution-image {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.institution-image img {
+  width: 100%;
+  max-width: 200px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  padding: 10px;
+}
+
+.institution-content h4 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.institution-content h4 a {
+  color: #2c5aa0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.institution-content h4 a:hover {
+  color: #1a4480;
+  text-decoration: underline;
+}
+
+.institution-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Responsive behavior for institutions grid */
+@media (max-width: 768px) {
+  .institutions-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .institution-image img {
+    max-width: 150px;
+    height: 100px;
+  }
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 1024px) {
+  .media-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .video-section,
+  .connectome-section {
+    flex: none;
+  }
+}
+
+/* Style the video container for responsive YouTube embeds */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;             /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  margin: 40px 0;                     /* Add 40px top/bottom margin */
+  margin-left: 20px;                  /* Add 20px left margin (indentation) */
+  border-radius: 4px;                 /* Add slightly rounded corners */
+  z-index: 1;                         /* Set z-index to prevent overlap */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;                 /* Match container border radius */
+}
+
+/* ============================================================================
+   D3.js VISUALIZATION STYLES
+   ============================================================================ */
+
+/* Node and edge styles for D3.js visualization */
+.node {
+  cursor: pointer;
+  stroke: #fff;
+  stroke-width: 2px;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
+}
+
+.node:hover {
+  stroke-width: 3px;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+}
+
+.node.selected {
+  stroke: #ffff00;
+  stroke-width: 4px;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8));
+}
+
+.edge {
+  stroke-width: 1px;
+  opacity: 0.6;
+  marker-end: url(#arrowhead);
+}
+
+.edge:hover {
+  opacity: 1;
+  stroke-width: 2px;
+}
+
+.node-label {
+  font-size: 10px;
+  fill: #fff;
+  text-anchor: middle;
+  pointer-events: none;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 /* Style tooltips (popup information when hovering over graph nodes) */
@@ -147,6 +524,36 @@ main {
   font-size: 12px;                    /* Small font size */
   pointer-events: none;               /* Don't let the tooltip interfere with mouse events */
   opacity: 0;                         /* Start invisible */
+}
+
+/* Loading spinner styles */
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* ============================================================================
@@ -168,5 +575,40 @@ main {
   
   #d3-container-2 {
     height: 300px;                    /* Reduce graph height for mobile */
+  }
+  
+  #connectome-container {
+    height: 400px;                    /* Reduce connectome height for mobile */
+    margin-left: 10px;                /* Reduce left margin for mobile */
+  }
+  
+  #controls-container {
+    margin-left: 10px;                /* Reduce left margin for mobile */
+    padding: 16px;                    /* Reduce padding for mobile */
+  }
+  
+  .legend-section {
+    margin-left: 10px;                /* Reduce left margin for mobile */
+  }
+  
+  #legend-container {
+    grid-template-columns: 1fr;       /* Single column for mobile */
+    padding: 16px;                    /* Reduce padding for mobile */
+  }
+  
+  #node-info {
+    margin-left: 10px;                /* Reduce left margin for mobile */
+  }
+  
+  .video-container {
+    margin-left: 10px;                /* Reduce left margin for mobile */
+  }
+  
+  .section-content {
+    margin-left: 10px;                /* Reduce left margin for mobile */
+  }
+  
+  .project-title-subsection {
+    margin-left: 10px;                /* Reduce left margin for mobile */
   }
 }

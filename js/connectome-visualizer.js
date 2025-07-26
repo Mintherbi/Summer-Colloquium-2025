@@ -53,10 +53,15 @@ class ConnectomeVisualizer {
     async loadData() {
         try {
             // Load connectome data
-            const connectomeData = await d3.csv('src/data/CElegansTP-master/Connectome.csv');
+            const connectomeData = await d3.csv('src/csv/CElegansTP-master/Connectome.csv');
             
-            // Load spatial positions
-            const positionData = await d3.csv('src/data/CElegansTP-master/spatialpositions/distances.csv');
+            // Load spatial positions (if available)
+            let positionData = [];
+            try {
+                positionData = await d3.csv('src/csv/CElegansTP-master/spatialpositions/distances.csv');
+            } catch (e) {
+                console.log('Spatial position data not found, using random positions');
+            }
             
             // Process spatial positions
             positionData.forEach(d => {
@@ -83,7 +88,7 @@ class ConnectomeVisualizer {
                     id: neuron,
                     name: neuron,
                     x: position ? position.x * 2 : Math.random() * 800,
-                    y: position ? position.y * 2 : Math.random() * 600,
+                    y: position ? position.y * 2 : Math.random() * 600,  // Restored original height
                     z: position ? position.z * 2 : 0,
                     connections: 0
                 };
@@ -117,13 +122,16 @@ class ConnectomeVisualizer {
     }
     
     setupSVG() {
-        const container = d3.select('#canvas-container');
+        // connectome-container에서 SVG를 찾음
         const width = 800;  // Fixed width to match main content
-        const height = 600;  // Fixed height
+        const height = 600;  // Restored original height for vertical layout
         
         this.svg = d3.select('#network-svg')
             .attr('width', width)
             .attr('height', height);
+        
+        // 기존 내용을 모두 지움 (중복 방지)
+        this.svg.selectAll('*').remove();
         
         // Add arrow markers
         this.svg.append('defs').append('marker')
@@ -184,7 +192,7 @@ class ConnectomeVisualizer {
     
     createVisualization() {
         const width = 800;
-        const height = 600;
+        const height = 600;  // Restored original height
         
         // Create force simulation
         this.simulation = d3.forceSimulation(this.nodes)
@@ -390,7 +398,7 @@ class ConnectomeVisualizer {
     }
 }
 
-// Initialize the visualizer when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    new ConnectomeVisualizer();
-});
+// 자동 초기화 코드 제거 - HTML에서 수동으로 초기화함
+// document.addEventListener('DOMContentLoaded', () => {
+//     new ConnectomeVisualizer();
+// });
