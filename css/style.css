@@ -167,18 +167,6 @@ main {
   color: var(--text-primary);
   margin: 48px 0 24px 0;
   position: relative;
-  padding-left: 20px;
-}
-
-.project-title::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 4px;
-  height: 32px;
-  background: linear-gradient(180deg, var(--primary-blue), var(--accent-teal));
 }
 
 /* Subsection Titles */
@@ -189,18 +177,6 @@ main {
   color: var(--secondary-blue);
   margin: 32px 0 16px 0;
   position: relative;
-  padding-left: 16px;
-}
-
-.project-title-subsection::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3px;
-  height: 20px;
-  background: var(--accent-teal);
 }
 
 /* ============================================================================
@@ -646,7 +622,7 @@ input:focus, select:focus {
 
 /* Connectome Container */
 #connectome-container {
-  background: var(--bg-white);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #e94560 100%);
   border: none;
   margin: 0;
   box-shadow: none;
@@ -654,6 +630,7 @@ input:focus, select:focus {
   width: 100vw;
   padding: 0;
   min-height: 100vh;
+  position: relative;
 }
 
 #network-svg {
@@ -708,11 +685,75 @@ input:focus, select:focus {
   background: #000000;
 }
 
+.video-container-fullscreen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.8), transparent);
+  z-index: 5;
+  pointer-events: none;
+}
+
 .video-container-fullscreen iframe {
   width: 100%;
   height: 100%;
   border: none;
   display: block;
+}
+
+/* Video Overlay Content */
+.video-overlay-content {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  max-width: 500px;
+  background: transparent;
+  padding: 40px;
+  color: #ffffff;
+  z-index: 10;
+  text-align: right;
+  overflow: hidden;
+}
+
+.video-overlay-content .project-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  padding-left: 0;
+}
+
+.video-overlay-content .project-title::before {
+  display: none;
+}
+
+.video-overlay-content .project-title-subsection {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 25px 0 15px 0;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  padding-left: 0;
+}
+
+.video-overlay-content .project-title-subsection::before {
+  display: none;
+}
+
+.video-overlay-content .section-content {
+  color: #ffffff;
+}
+
+.video-overlay-content .section-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 /* Brain Institutions Fullscreen Section */
@@ -1251,7 +1292,7 @@ input:focus, select:focus {
   position: absolute;
   top: 30px;
   left: 30px;
-  background: rgba(15, 15, 15, 0.9);
+  background: transparent;
   padding: 20px;
   z-index: 3;
   color: #ffffff;
@@ -1302,7 +1343,7 @@ input:focus, select:focus {
   color: #ffffff;
   z-index: 2;
   text-align: right;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .historical-overlay-content .project-title {
