@@ -1,895 +1,1275 @@
-/* Import Google Fonts */
-/* This loads the Roboto font family from Google's servers */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+/* Import Scientific Typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Source+Serif+Pro:wght@400;600&display=swap');
 
 /* ============================================================================
-   BASIC PAGE STYLING
+   CSS VARIABLES & DESIGN SYSTEM
    ============================================================================ */
 
-/* Style the entire body of the webpage */
+:root {
+  /* Scientific Color Palette */
+  --primary-blue: #2563eb;
+  --secondary-blue: #1e40af;
+  --accent-teal: #0891b2;
+  --accent-emerald: #059669;
+  --neutral-gray: #64748b;
+  --dark-gray: #334155;
+  --light-gray: #f8fafc;
+  --bg-white: #ffffff;
+  --bg-subtle: #f1f5f9;
+  --border-light: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  
+  /* Data Visualization Colors */
+  --data-blue: #3b82f6;
+  --data-green: #10b981;
+  --data-orange: #f59e0b;
+  --data-purple: #8b5cf6;
+  --data-red: #ef4444;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  /* Animation Curves */
+  --ease-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ============================================================================
+   RESET & BASE STYLES
+   ============================================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
 body {
-  font-family: 'Roboto', sans-serif;  /* Set the font to Roboto, with sans-serif as backup */
-  background-color: #ffffff;          /* Set background color to white */
-  color: #111;                        /* Set text color to dark gray (almost black) */
-  margin: 0;                          /* Remove default spacing around the body */
-  padding: 0;                         /* Remove default internal spacing */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-white);
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ============================================================================
-   HEADER STYLING
+   HEADER
    ============================================================================ */
 
-/* Style the header section at the top of the page */
 header {
-  display: flex;                      /* Use flexbox layout for flexible positioning */
-  justify-content: space-between;     /* Spread items evenly across the header */
-  align-items: center;                /* Center items vertically */
-  padding: 24px 40px;                 /* Add 24px top/bottom, 40px left/right spacing inside */
-  border-bottom: 1px solid #ccc;      /* Add a light gray line at the bottom */
-  font-size: 18px;                    /* Set font size to 18 pixels */
+  display: none;
 }
 
-/* Style the left section of the header (institution name) */
-header .left {
-  color: #aaa;                        /* Set text color to light gray */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
 }
 
-/* Style the center section of the header (main title) */
-header .center {
-  font-weight: 400;                   /* Set font weight to normal (not bold) */
-  text-align: center;                 /* Center the text horizontally */
+.header-content .left {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* Style the span element inside the center section (subtitle) */
-header .center span {
-  font-size: 12px;                    /* Make this text smaller (12 pixels) */
-  color: #888;                        /* Set text color to medium gray */
+.header-content .center {
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 18px;
 }
 
-/* Style the right section of the header */
-header .right {
-  color: #000;                        /* Set text color to black */
-  text-decoration: none;              /* Remove the underline from links */
-  font-weight: 400;                   /* Set font weight to normal */
-  cursor: pointer;                    /* Show pointer cursor on hover */
+.header-content .center span {
+  display: block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.header-content .right {
+  color: var(--primary-blue);
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.2s var(--ease-smooth);
+}
+
+.header-content .right:hover {
+  color: var(--secondary-blue);
 }
 
 /* ============================================================================
-   MAIN CONTENT AREA
+   MAIN LAYOUT & TYPOGRAPHY
    ============================================================================ */
 
-/* Style the main content area */
 main {
-  max-width: 800px;                   /* Limit the maximum width to 800 pixels */
-  margin: 60px auto;                  /* Add 60px top/bottom margin, center horizontally */
-  padding: 0 20px;                    /* Add 20px left/right padding, no top/bottom */
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Main Project Title */
+.project-title-main {
+  font-family: 'Source Serif Pro', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+  color: var(--text-primary);
+  margin: 60px 0 80px 0;
+  position: relative;
+  padding: 0 24px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-title-main::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--accent-teal));
+}
+
+/* Section Titles */
+.project-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 48px 0 24px 0;
+  position: relative;
+  padding-left: 20px;
+}
+
+.project-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 32px;
+  background: linear-gradient(180deg, var(--primary-blue), var(--accent-teal));
+}
+
+/* Subsection Titles */
+.project-title-subsection {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  color: var(--secondary-blue);
+  margin: 32px 0 16px 0;
+  position: relative;
+  padding-left: 16px;
+}
+
+.project-title-subsection::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 20px;
+  background: var(--accent-teal);
 }
 
 /* ============================================================================
-   PROJECT TITLE STYLES
+   MAIN RESEARCH GRAPH SECTION
    ============================================================================ */
 
-/* Style the project year/date */
-.project-meta {
-  font-size: 14px;                    /* Set font size to 14 pixels */
-  color: #999;                        /* Set text color to light gray */
-  margin-bottom: 8px;                 /* Add 8 pixels of space below this element */
+.section-main-graph {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(8, 145, 178, 0.03) 50%, rgba(5, 150, 105, 0.03) 100%);
+  border-top: 6px solid var(--primary-blue);
+  border-bottom: 2px solid var(--border-light);
+  padding: 80px 0;
+  margin: 0;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* Style the main project title (regular sections) */
-.project-title {
-  font-size: 24px;                    /* Set font size to 24 pixels (larger) */
-  font-weight: 400;                   /* Set font weight to normal (not bold) */
-  margin-bottom: 20px;                /* Add 20 pixels of space below this element */
-  margin-top: 20px;                   /* Add 20 pixels of space above this element */
+.section-main-graph::before {
+  content: '🧠⚡🔗';
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-size: 28px;
+  opacity: 0.4;
 }
 
-/* Style for the main title (Research Foundations + Project Outline) */
-.project-title-main {
-  font-size: 32px;                    /* Set font size to 32 pixels (larger than regular titles) */
-  font-weight: 400;                   /* Set font weight to normal (not bold) */
-  margin-bottom: 20px;                /* Add 20 pixels of space below this element */
-  margin-top: 20px;                   /* Add 20 pixels of space above this element */
-  color: #666;                        /* Set text color to medium gray */
+.section-main-graph .project-title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  color: var(--primary-blue);
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* Style for Network Graph Visualization title (subsection) */
-.project-title-subsection {
-  font-size: 18px;                    /* Set font size to 18 pixels (smaller than regular titles) */
-  font-weight: 400;                   /* Set font weight to normal (not bold) */
-  margin-bottom: 4px;                 /* Add 4 pixels of space below this element */
-  margin-top: 20px;                   /* Add 20 pixels of space above this element */
-  color: #666;                        /* Set text color to medium gray */
-  margin-left: 20px;                  /* Add 20 pixels of space to the left (indentation) */
+.graph-description {
+  text-align: center;
+  font-size: 18px;
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  line-height: 1.6;
 }
 
-/* Style the project subtitle */
-.project-subtitle {
-  font-size: 16px;                    /* Set font size to 16 pixels */
-  color: #999;                        /* Set text color to light gray */
-  margin-bottom: 24px;                /* Add 24 pixels of space below this element */
+#main-research-graph-container {
+  background: var(--bg-white);
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
 }
 
-/* Style the advisor information */
-.advisor {
-  font-size: 14px;                    /* Set font size to 14 pixels */
-  margin-bottom: 40px;                /* Add 40 pixels of space below this element */
-  color: #333;                        /* Set text color to dark gray */
+.graph-overlay-content {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  z-index: 10;
+  max-width: 350px;
+  background: transparent;
+  backdrop-filter: none;
+  padding: 30px;
+  box-shadow: none;
+  border: none;
+}
+
+.graph-overlay-content .project-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.graph-overlay-content .graph-description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+#main-research-graph {
+  width: 100vw;
+  height: 100vh;
+}
+
+.graph-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.legend-category {
+  margin-bottom: 16px;
+}
+
+.legend-category h4 {
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: left;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.graph-legend .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  transition: all 0.2s var(--ease-smooth);
+}
+
+.graph-legend .legend-item:hover {
+  color: var(--text-primary);
+  transform: translateX(2px);
+  background: transparent;
+  border: none;
+}
+
+.graph-legend .legend-color {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+/* ============================================================================
+   SECTION LAYOUTS
+   ============================================================================ */
+
+[class*="section-"] {
+  /* background: var(--bg-white); */
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  position: relative;
+  transition: all 0.3s var(--ease-smooth);
+  width: 100vw;
+  min-height: 100vh;
+}
+
+[class*="section-"]:hover {
+  box-shadow: none;
+}
+
+[class*="section-"] .project-title,
+[class*="section-"] .section-content {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Section Icons */
+.section-historical::before { content: '📚'; }
+.section-community::before { content: '�'; }
+.section-situated::before { content: '⚙️'; }
+.section-methods::before { content: '🔍'; }
+.section-experiments::before { content: '🧪'; }
+.section-visual::before { content: '📊'; }
+.section-rhetorical::before { content: '💭'; }
+.section-capstone::before { content: '🎯'; }
+.section-challenge::before { content: '⚡'; }
+
+[class*="section-"]::before {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 24px;
+  opacity: 0.3;
+}
+
+/* Section Colors */
+.section-historical { 
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.02) 0%, rgba(255, 255, 255, 1) 100%);
+  border-top: none;
+}
+
+.section-community { 
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.02) 0%, rgba(255, 255, 255, 1) 100%);
+  border-top: none;
+}
+
+.section-situated { 
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.02) 0%, rgba(255, 255, 255, 1) 100%);
+  border-top: none;
+}
+
+.section-methods { 
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.02) 0%, rgba(255, 255, 255, 1) 100%);
+  border-top: none;
+}
+
+.section-experiments { 
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.02) 0%, rgba(255, 255, 255, 1) 100%);
+  border-top: none;
+}
+
+.section-visual { 
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.02) 0%, rgba(255, 255, 255, 1) 100%);
+  border-top: none;
+}
+
+.section-rhetorical { 
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.02) 0%, rgba(255, 255, 255, 1) 100%);
+  border-top: none;
+}
+
+.section-capstone { 
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.02) 0%, rgba(255, 255, 255, 1) 100%);
+  border-top: none;
+}
+
+.section-challenge { 
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.02) 0%, rgba(255, 255, 255, 1) 100%);
+  border-top: none;
+}
+
+.section-transition {
+  display: none;
 }
 
 /* ============================================================================
    CONTENT STYLING
    ============================================================================ */
 
-/* Style for section content (Lorem ipsum text) */
 .section-content {
-  margin-left: 20px;                  /* Add 20 pixels of space to the left (indentation) */
-  margin-bottom: 20px;                /* Add 20 pixels of space below this element */
-  font-size: 16px;                    /* Set font size to 16 pixels */
-  line-height: 1.6;                   /* Set space between lines to 1.6 times the font size */
-  color: #333;                        /* Set text color to dark gray */
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-top: 16px;
 }
 
-/* Style all paragraph elements */
-p {
-  font-size: 16px;                    /* Set font size to 16 pixels */
-  line-height: 1.6;                   /* Set line height for readability */
-  margin-bottom: 24px;                /* Add 24 pixels of space below */
-  color: #333;                        /* Set text color to dark gray */
+.section-content p {
+  margin: 16px 0;
+  text-align: justify;
+}
+
+.section-content ul {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+
+.section-content li {
+  margin: 12px 0;
+  color: var(--text-primary);
+  position: relative;
+}
+
+.section-content li::marker {
+  color: var(--primary-blue);
+}
+
+.section-content strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.section-content em {
+  font-style: italic;
+  color: var(--secondary-blue);
+}
+
+.section-content a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s var(--ease-smooth);
+}
+
+.section-content a:hover {
+  color: var(--secondary-blue);
+  border-bottom-color: var(--secondary-blue);
+}
+
+.section-content sup {
+  font-size: 0.75em;
+  color: var(--accent-teal);
+}
+
+/* Scientific Blockquotes */
+blockquote {
+  margin: 24px 0;
+  padding: 20px 24px;
+  background: var(--bg-subtle);
+  border-left: 4px solid var(--accent-teal);
+  border-radius: 0;
+  font-style: italic;
+  color: var(--text-secondary);
+  position: relative;
+}
+
+blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  font-size: 48px;
+  color: var(--accent-teal);
+  opacity: 0.3;
+  font-family: serif;
+}
+
+blockquote footer {
+  margin-top: 16px;
+  font-style: normal;
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+blockquote footer cite {
+  font-style: italic;
 }
 
 /* ============================================================================
-   NETWORK GRAPH STYLING
+   INTERACTIVE ELEMENTS
    ============================================================================ */
 
-/* Style the D3 container for the network graph */
-#d3-container-2 {
-  width: 100%;                        /* Make the container take full width */
-  height: 400px;                      /* Set the height to 400 pixels */
-  margin: 40px 0;                     /* Add 40px top/bottom margin */
-  margin-left: 20px;                  /* Add 20px left margin (indentation) */
-  border: 1px solid #eee;             /* Add a light gray border around the container */
-  border-radius: 4px;                 /* Add slightly rounded corners */
-  background-color: #f9f9f9;         /* Set background color to very light gray */
-  position: relative;                 /* Ensure proper positioning */
-  z-index: 1;                         /* Set z-index to prevent overlap */
-  overflow: hidden;                   /* Hide overflow content */
+button {
+  font-family: 'Inter', sans-serif;
+  background: var(--primary-blue);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.2s var(--ease-smooth);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow-sm);
 }
 
-/* Style the connectome container */
-#connectome-container {
-  width: 100%;                        /* Make the container take full width */
-  height: 600px;                      /* Restore original height for vertical layout */
-  margin: 40px 0;                     /* Add 40px top/bottom margin */
-  margin-left: 20px;                  /* Add 20px left margin (indentation) */
-  border: 1px solid #eee;             /* Add a light gray border around the container */
-  border-radius: 4px;                 /* Add slightly rounded corners */
-  background-color: #f9f9f9;         /* Set background color to very light gray */
-  position: relative;                 /* Ensure proper positioning */
-  z-index: 1;                         /* Set z-index to prevent overlap */
-  clear: both;                        /* Clear any floating elements */
-  overflow: hidden;                   /* Hide overflow content */
+button:hover {
+  background: var(--secondary-blue);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
 }
 
-#network-svg {
-  width: 100%;
-  height: 100%;
-  display: block;                     /* Ensure proper block display */
-  background: radial-gradient(circle, #1a202c 0%, #0f1419 100%); /* Dark gradient background */
+button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
 }
 
-/* Interactive Controls Styling */
+/* Form Elements */
+input, select {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-white);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+  padding: 12px 16px;
+  font-size: 14px;
+  border-radius: 0;
+  transition: all 0.2s var(--ease-smooth);
+  font-weight: 500;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* ============================================================================
+   SCIENTIFIC DATA VISUALIZATION ELEMENTS
+   ============================================================================ */
+
+/* Control Container */
 #controls-container {
-  margin: 40px 0;                     /* Add 40px top/bottom margin */
-  margin-left: 20px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #eee;
-  border-radius: 4px;
-  position: relative;                 /* Ensure proper positioning */
-  z-index: 2;                         /* Higher z-index for controls */
-  clear: both;                        /* Clear any floating elements */
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 0;
+  padding: 24px;
+  margin: 32px 0;
+  box-shadow: var(--shadow-sm);
 }
 
 .control-group {
-  margin-bottom: 20px;
-}
-
-.control-group:last-child {
-  margin-bottom: 0;
+  margin: 16px 0;
 }
 
 .control-group label {
   display: block;
   margin-bottom: 8px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #333;
-}
-
-.control-group select {
-  width: 100%;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: white;
-  font-size: 14px;
-  color: #333;
-}
-
-.control-group input[type="range"] {
-  width: calc(100% - 50px);
-  margin-right: 10px;
-}
-
-#strength-value {
-  font-weight: 700;
-  color: #333;
+  color: var(--text-primary);
+  font-weight: 600;
   font-size: 14px;
 }
 
-/* Button styling */
-button {
-  background-color: #111;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  font-size: 14px;
-  font-weight: 400;
-  cursor: pointer;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  transition: background-color 0.3s;
-  border-radius: 4px;
-}
-
-button:hover {
-  background-color: #333;
-}
-
-button:last-child {
-  margin-right: 0;
-}
-
-/* Legend Styling */
-.legend-section {
-  margin: 40px 0;                     /* Add 40px top/bottom margin */
-  margin-left: 20px;
-  position: relative;                 /* Ensure proper positioning */
-  z-index: 1;                         /* Set z-index to prevent overlap */
-  clear: both;                        /* Clear any floating elements */
-}
-
-/* Legend styling within controls */
+/* Legend */
 .legend-group {
-  margin-top: 20px;
-  padding-top: 15px;
-  border-top: 1px solid #ddd;
-}
-
-.legend-group label {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: 500;
-  color: #333;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-light);
 }
 
 #legend-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 8px;
-  padding: 15px;
-  border: 1px solid #eee;
-  border-radius: 4px;
-  background-color: #f9f9f9;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
 }
 
 .legend-item {
   display: flex;
   align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  /* background: var(--bg-white); */
+  /* border: 1px solid var(--border-light); */
+  border-radius: 0;
   font-size: 13px;
+  font-weight: 500;
 }
 
 .legend-color {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  margin-right: 6px;
-  border: 1px solid #ccc;
+  width: 12px;
+  height: 12px;
+  border-radius: 0;
+  border: 1px solid var(--border-medium);
 }
 
-/* Selected Neuron Information */
-#node-info {
-  margin: 40px 0;                     /* Add 40px top/bottom margin */
-  margin-left: 20px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #eee;
-  border-radius: 4px;
-  position: relative;                 /* Ensure proper positioning */
-  z-index: 1;                         /* Set z-index to prevent overlap */
-  clear: both;                        /* Clear any floating elements */
+/* Connectome Container */
+#connectome-container {
+  background: var(--bg-white);
+  border: none;
+  margin: 0;
+  box-shadow: none;
+  overflow: hidden;
+  width: 100vw;
+  padding: 0;
+  min-height: 100vh;
 }
 
-#node-details {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #111;
+#network-svg {
+  width: 100%;
+  height: auto;
 }
 
-/* ============================================================================
-   MEDIA CONTAINER (SIDE-BY-SIDE LAYOUT)
-   ============================================================================ */
+/* D3 Container */
+#d3-container-2 {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 0;
+  margin: 32px 0;
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+}
 
-/* Container for side-by-side layout of video and connectome */
-.media-container {
+/* Video Container */
+.video-container {
+  margin: 32px 0;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 315px;
+  border: none;
+  display: block;
+}
+
+/* Fullscreen Video Container */
+.section-video {
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  position: relative;
   display: flex;
-  gap: 30px;
-  margin: 20px 0;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
-/* Video section (left side) */
-.video-section {
-  flex: 1;
-  min-width: 0; /* Prevent flex item from overflowing */
+.video-container-fullscreen {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #000000;
 }
 
-/* Connectome section (right side) */
-.connectome-section {
-  flex: 1;
-  min-width: 0; /* Prevent flex item from overflowing */
+.video-container-fullscreen iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }
 
-/* Title within connectome section */
-.connectome-title {
-  font-size: 18px;
-  font-weight: 400;
-  color: #666;
-  margin-bottom: 15px;
-  text-align: center;
+/* Brain Institutions Fullscreen Section */
+.section-brain-institutions {
+  width: 100vw;
+  height: 100vh;
+  background: #f8fafc;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
-/* Video caption styling */
-.video-caption {
-  margin: 15px 0 0 20px;              /* Match video container indentation */
-  font-style: italic;
-  color: #666;
-  font-size: 14px;
-}
-
-/* ============================================================================
-   INSTITUTIONS GRID STYLING
-   ============================================================================ */
-
-/* 2x2 Grid for brain research institutions */
-.institutions-grid {
+.institutions-grid-fullscreen {
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  margin: 30px 0;
-  padding: 0 20px;
+  grid-template-rows: 1fr 1fr;
+  gap: 0;
+}
+
+.institution-card-fullscreen {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-white);
+  border: 2px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.3s var(--ease-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.institution-card-fullscreen:hover {
+  background: var(--bg-subtle);
+  transform: scale(1.02);
+  box-shadow: var(--shadow-xl);
+  z-index: 10;
+}
+
+.institution-image-fullscreen {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.institution-image-fullscreen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.institution-content-fullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-smooth);
+}
+
+.institution-card-fullscreen:hover .institution-content-fullscreen {
+  opacity: 1;
+}
+
+.institution-content-fullscreen h3 {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.institution-content-fullscreen h3 a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s var(--ease-smooth);
+}
+
+.institution-content-fullscreen h3 a:hover {
+  color: #4ecdc4;
+}
+
+.institution-content-fullscreen p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.video-caption {
+  padding: 16px 20px;
+  font-style: italic;
+  color: var(--text-muted);
+  text-align: center;
+  background: var(--bg-subtle);
+  font-size: 14px;
+  border-top: 1px solid var(--border-light);
+}
+
+/* ============================================================================
+   SCIENTIFIC CARD LAYOUTS
+   ============================================================================ */
+
+.institutions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin: 32px 0;
 }
 
 .institution-card {
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s var(--ease-smooth);
 }
 
 .institution-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--primary-blue);
 }
 
 .institution-image {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 .institution-image img {
-  width: 100%;
-  max-width: 200px;
+  max-width: 100%;
   height: 120px;
   object-fit: contain;
-  border-radius: 4px;
-  background-color: #f9f9f9;
-  padding: 10px;
+  border: 1px solid var(--border-light);
 }
 
 .institution-content h4 {
-  margin: 0 0 10px 0;
-  font-size: 16px;
+  color: var(--text-primary);
   font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 16px;
 }
 
 .institution-content h4 a {
-  color: #2c5aa0;
+  color: inherit;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.2s var(--ease-smooth);
 }
 
 .institution-content h4 a:hover {
-  color: #1a4480;
-  text-decoration: underline;
+  color: var(--primary-blue);
 }
 
 .institution-content p {
-  margin: 0;
+  color: var(--text-secondary);
   font-size: 14px;
-  line-height: 1.5;
-  color: #555;
+  line-height: 1.6;
 }
 
-/* Responsive behavior for institutions grid */
+.platform-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.platform-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 20px;
+  align-items: start;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s var(--ease-smooth);
+}
+
+.platform-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.platform-image img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 1px solid var(--border-light);
+}
+
+.platform-content h4 {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.platform-content h4 a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s var(--ease-smooth);
+}
+
+.platform-content h4 a:hover {
+  color: var(--primary-blue);
+}
+
+.platform-content p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ============================================================================
+   SECTION TRANSITIONS
+   ============================================================================ */
+
+.section-transition {
+  display: none;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
 @media (max-width: 768px) {
+  header .header-content {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .section-main-graph {
+    padding: 50px 0;
+  }
+  
+  .section-main-graph .project-title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+  
+  .graph-description {
+    font-size: 16px;
+    padding: 0 16px;
+  }
+  
+  #main-research-graph-container {
+    margin: 20px 0;
+    padding: 15px;
+  }
+  
+  #main-research-graph {
+    height: 500px;
+  }
+  
+  .graph-legend {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  [class*="section-"] {
+    padding: 40px 0;
+  }
+  
+  [class*="section-"] .project-title,
+  [class*="section-"] .section-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .project-title-main {
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin: 40px 0 60px 0;
+    padding: 0 16px;
+  }
+  
   .institutions-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
   }
   
-  .institution-image img {
-    max-width: 150px;
-    height: 100px;
+  .platform-item {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .platform-image {
+    justify-self: center;
+  }
+  
+  .video-container iframe {
+    height: 200px;
+  }
+  
+  #legend-container {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
 }
 
-/* Responsive behavior for smaller screens */
-@media (max-width: 1024px) {
-  .media-container {
-    flex-direction: column;
-    gap: 20px;
+@media (max-width: 480px) {
+  .section-main-graph {
+    padding: 30px 0;
   }
   
-  .video-section,
-  .connectome-section {
-    flex: none;
+  .section-main-graph .project-title {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+  }
+  
+  .graph-description {
+    font-size: 14px;
+    padding: 0 12px;
+  }
+  
+  #main-research-graph {
+    height: 450px;
+  }
+  
+  .graph-legend {
+    padding: 12px;
+  }
+  
+  .legend-category h4 {
+    font-size: 14px;
+  }
+  
+  .graph-legend .legend-item {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  
+  [class*="section-"] {
+    padding: 30px 0;
+  }
+  
+  [class*="section-"] .project-title,
+  [class*="section-"] .section-content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .project-title-main {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    padding: 0 12px;
+  }
+  
+  .video-container iframe {
+    height: 180px;
+  }
+  
+  #controls-container {
+    padding: 16px;
   }
 }
 
-/* Style the video container for responsive YouTube embeds */
-.video-container {
+/* ============================================================================
+   UTILITY CLASSES
+   ============================================================================ */
+
+.text-center { text-align: center; }
+.text-muted { color: var(--text-muted); }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+.scientific-emphasis {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(8, 145, 178, 0.1));
+  color: var(--primary-blue);
+  padding: 2px 6px;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.data-highlight {
+  background: var(--bg-subtle);
+  padding: 16px;
+  border-left: 3px solid var(--accent-teal);
+  margin: 16px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+}
+
+.methodology-box {
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.05), rgba(255, 255, 255, 1));
+  border: 1px solid var(--accent-emerald);
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.methodology-box h5 {
+  color: var(--accent-emerald);
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================================
+   ANIMATIONS & SPECIAL EFFECTS
+   ============================================================================ */
+
+@keyframes subtle-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-2px); }
+}
+
+.floating-element {
+  animation: subtle-float 4s ease-in-out infinite;
+}
+
+/* ============================================================================
+   HISTORICAL LINEAGE SECTION
+   ============================================================================ */
+
+/* Historical Lineage Section */
+#historical-lineage {
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
   position: relative;
-  padding-bottom: 56.25%;             /* 16:9 aspect ratio */
-  height: 0;
-  overflow: hidden;
-  margin: 40px 0;                     /* Add 40px top/bottom margin */
-  margin-left: 20px;                  /* Add 20px left margin (indentation) */
-  border-radius: 4px;                 /* Add slightly rounded corners */
-  z-index: 1;                         /* Set z-index to prevent overlap */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.video-container iframe {
+#historical-connectome-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 4px;                 /* Match container border radius */
+  z-index: 1;
+  background: #000000;
 }
 
-/* ============================================================================
-   D3.js VISUALIZATION STYLES
-   ============================================================================ */
-
-/* Node and edge styles for D3.js visualization */
-.node {
-  cursor: pointer;
-  stroke: #fff;
-  stroke-width: 2px;
-  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
+#historical-connectome-container svg {
+  background: #000000 !important;
 }
 
-.node:hover {
-  stroke-width: 3px;
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+#network-svg {
+  background: #000000 !important;
 }
 
-.node.selected {
-  stroke: #ffff00;
-  stroke-width: 4px;
-  filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8));
+.historical-controls-panel {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: rgba(15, 15, 15, 0.9);
+  padding: 20px;
+  z-index: 3;
+  color: #ffffff;
+  border-radius: 0;
 }
 
-.edge {
-  stroke-width: 1px;
-  opacity: 0.6;
-  marker-end: url(#arrowhead);
+.historical-legend {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  background: rgba(15, 15, 15, 0.9);
+  padding: 20px;
+  z-index: 3;
+  color: #ffffff;
+  border-radius: 0;
 }
 
-.edge:hover {
-  opacity: 1;
-  stroke-width: 2px;
+.historical-legend .legend-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #ffffff;
 }
 
-.node-label {
-  font-size: 10px;
-  fill: #fff;
-  text-anchor: middle;
-  pointer-events: none;
-  font-family: 'Roboto', sans-serif;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-}
-
-/* Style tooltips (popup information when hovering over graph nodes) */
-.tooltip {
-  position: absolute;                  /* Position the tooltip absolutely so we can place it anywhere */
-  background: rgba(0, 0, 0, 0.8);    /* Semi-transparent black background */
-  color: white;                       /* White text color */
-  padding: 8px;                       /* Add 8px of spacing inside the tooltip */
-  border-radius: 4px;                 /* Add slightly rounded corners */
-  font-size: 12px;                    /* Small font size */
-  pointer-events: none;               /* Don't let the tooltip interfere with mouse events */
-  opacity: 0;                         /* Start invisible */
-}
-
-/* Loading spinner styles */
-.loading {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.9);
+.historical-legend .legend-item {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  z-index: 9999;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #ffffff;
 }
 
-.spinner {
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid #3498db;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
+.historical-legend .legend-color {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.historical-overlay-content {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 400px;
+  max-height: calc(100vh - 60px);
+  background: transparent;
+  padding: 30px;
+  color: #ffffff;
+  z-index: 2;
+  text-align: right;
+  overflow-y: auto;
+}
+
+.historical-overlay-content .project-title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-align: right;
+  color: #ffffff;
+}
+
+.historical-overlay-content .project-title-subsection {
+  font-size: 1.3rem;
+  margin: 25px 0 15px 0;
+  color: #4ecdc4;
+  text-align: right;
+}
+
+.historical-overlay-content p {
+  line-height: 1.8;
   margin-bottom: 20px;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  text-align: right;
+  color: #ffffff;
 }
 
 /* ============================================================================
-   RESPONSIVE DESIGN (for mobile devices)
+   PRINT STYLES
    ============================================================================ */
 
-/* Mobile devices (screens smaller than 768px) */
-@media (max-width: 768px) {
-  main {
-    margin: 40px auto;                /* Reduce top/bottom margin for mobile */
-    padding: 0 15px;                  /* Reduce left/right padding for mobile */
+@media print {
+  body {
+    background: white;
+    color: black;
   }
   
-  header {
-    padding: 16px 20px;               /* Reduce header padding for mobile */
-    flex-direction: column;           /* Stack header items vertically on mobile */
-    gap: 10px;                        /* Add space between header items */
+  [class*="section-"] {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
   }
   
-  #d3-container-2 {
-    height: 300px;                    /* Reduce graph height for mobile */
-  }
-  
-  #connectome-container {
-    height: 400px;                    /* Reduce connectome height for mobile */
-    margin-left: 10px;                /* Reduce left margin for mobile */
-  }
-  
-  #controls-container {
-    margin-left: 10px;                /* Reduce left margin for mobile */
-    padding: 16px;                    /* Reduce padding for mobile */
-  }
-  
-  .legend-section {
-    margin-left: 10px;                /* Reduce left margin for mobile */
-  }
-  
-  #legend-container {
-    grid-template-columns: 1fr;       /* Single column for mobile */
-    padding: 16px;                    /* Reduce padding for mobile */
-  }
-  
-  #node-info {
-    margin-left: 10px;                /* Reduce left margin for mobile */
-  }
-  
-  .video-container {
-    margin-left: 10px;                /* Reduce left margin for mobile */
-  }
-  
-  .section-content {
-    margin-left: 10px;                /* Reduce left margin for mobile */
-  }
-  
-  .project-title-subsection {
-    margin-left: 10px;                /* Reduce left margin for mobile */
-  }
-}
-
-/* ============================================================================
-   PLATFORM SHOWCASE STYLING (Community of Practice)
-   ============================================================================ */
-
-/* Platform showcase container - similar to institutions grid but more flexible */
-.platform-showcase {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  margin: 25px 0;
-  padding: 0 10px;
-}
-
-.platform-item {
-  display: flex;
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  align-items: center;
-  gap: 20px;
-}
-
-.platform-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}
-
-.platform-image {
-  flex-shrink: 0;
-  width: 150px;
-  text-align: center;
-}
-
-.platform-image img {
-  width: 100%;
-  max-width: 150px;
-  height: 100px;
-  object-fit: contain;
-  border-radius: 4px;
-  background-color: #f9f9f9;
-  padding: 10px;
-}
-
-.platform-content {
-  flex: 1;
-}
-
-.platform-content h4 {
-  margin: 0 0 10px 0;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.platform-content h4 a {
-  color: #2c5aa0;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.platform-content h4 a:hover {
-  color: #1a4480;
-  text-decoration: underline;
-}
-
-.platform-content p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #555;
-}
-
-/* Responsive behavior for platform showcase */
-@media (max-width: 768px) {
-  .platform-item {
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-  }
-  
-  .platform-image {
-    width: 100%;
-  }
-  
-  .platform-image img {
-    max-width: 120px;
-    height: 80px;
-  }
-}
-
-/* ============================================================================
-   METHOD SHOWCASE STYLING
-   ============================================================================ */
-
-/* Method showcase - similar to platform showcase but more compact */
-.method-showcase {
-  margin: 25px 0;
-}
-
-.method-item {
-  display: flex;
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.method-image {
-  flex-shrink: 0;
-  width: 120px;
-  text-align: center;
-}
-
-.method-image img {
-  width: 100%;
-  max-width: 120px;
-  height: 90px;
-  object-fit: contain;
-  border-radius: 4px;
-  background-color: #f9f9f9;
-  padding: 8px;
-}
-
-.method-content h4 {
-  margin: 0 0 8px 0;
-  font-size: 15px;
-  font-weight: 600;
-  color: #2c5aa0;
-}
-
-.method-content p {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.4;
-  color: #555;
-}
-
-/* Theory framework styling */
-.theory-framework {
-  margin: 25px 0;
-}
-
-.theory-section {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  margin-bottom: 25px;
-  padding: 20px;
-  background: #fafafa;
-  border-radius: 8px;
-}
-
-.theory-content {
-  flex: 1;
-}
-
-.theory-content h4 {
-  margin: 0 0 12px 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
-}
-
-.theory-content p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #555;
-}
-
-.theory-image {
-  flex-shrink: 0;
-  width: 150px;
-  text-align: center;
-}
-
-.theory-image img {
-  width: 100%;
-  max-width: 150px;
-  height: 110px;
-  object-fit: contain;
-  border-radius: 6px;
-  background-color: #fff;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.theory-image-full {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.theory-image-full img {
-  max-width: 100%;
-  height: 200px;
-  object-fit: contain;
-  border-radius: 8px;
-  background-color: #fff;
-  padding: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* Growth modeling styling */
-.growth-modeling {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin: 25px 0;
-}
-
-.growth-item {
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.growth-image img {
-  width: 100%;
-  max-width: 140px;
-  height: 100px;
-  object-fit: contain;
-  border-radius: 4px;
-  background-color: #f9f9f9;
-  padding: 8px;
-  margin-bottom: 10px;
-}
-
-.growth-content h4 {
-  margin: 0 0 8px 0;
-  font-size: 14px;
-  font-weight: 600;
-  color: #2c5aa0;
-}
-
-.growth-content p {
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.4;
-  color: #555;
-}
-
-/* Responsive behavior for method elements */
-@media (max-width: 768px) {
-  .method-item {
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-  }
-  
-  .method-image {
-    width: 100%;
-  }
-  
-  .theory-section {
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-  }
-  
-  .theory-image {
-    width: 100%;
-  }
-  
-  .growth-modeling {
-    grid-template-columns: 1fr;
-  }
-  
-  .theory-image-full img {
-    height: 150px;
+  .section-transition {
+    display: none;
   }
 }

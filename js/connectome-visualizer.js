@@ -122,13 +122,18 @@ class ConnectomeVisualizer {
     }
     
     setupSVG() {
-        // connectome-container에서 SVG를 찾음
-        const width = 800;  // Fixed width to match main content
-        const height = 600;  // Restored original height for vertical layout
+        // Use full viewport dimensions
+        const width = window.innerWidth;
+        const height = window.innerHeight;
         
         this.svg = d3.select('#network-svg')
             .attr('width', width)
-            .attr('height', height);
+            .attr('height', height)
+            .style('background', '#000000');
+        
+        // Store dimensions for later use
+        this.width = width;
+        this.height = height;
         
         // 기존 내용을 모두 지움 (중복 방지)
         this.svg.selectAll('*').remove();
@@ -161,28 +166,43 @@ class ConnectomeVisualizer {
     }
     
     setupControls() {
-        // Neurotransmitter filter
-        d3.select('#neurotransmitter-filter').on('change', () => {
-            this.updateVisualization();
-        });
+        // Neurotransmitter filter (if exists)
+        const neurotransmitterFilter = d3.select('#neurotransmitter-filter');
+        if (!neurotransmitterFilter.empty()) {
+            neurotransmitterFilter.on('change', () => {
+                this.updateVisualization();
+            });
+        }
         
-        // Connection strength filter
-        d3.select('#connection-strength').on('input', function() {
-            d3.select('#strength-value').text(this.value);
-        }).on('change', () => {
-            this.updateVisualization();
-        });
+        // Connection strength filter (if exists)
+        const connectionStrength = d3.select('#connection-strength');
+        if (!connectionStrength.empty()) {
+            connectionStrength.on('input', function() {
+                const strengthValue = d3.select('#strength-value');
+                if (!strengthValue.empty()) {
+                    strengthValue.text(this.value);
+                }
+            }).on('change', () => {
+                this.updateVisualization();
+            });
+        }
         
-        // Reset camera
-        d3.select('#reset-camera').on('click', () => {
-            this.resetCamera();
-        });
+        // Reset camera (if exists)
+        const resetCamera = d3.select('#reset-camera');
+        if (!resetCamera.empty()) {
+            resetCamera.on('click', () => {
+                this.resetCamera();
+            });
+        }
         
-        // Toggle labels
-        d3.select('#toggle-labels').on('click', () => {
-            this.showLabels = !this.showLabels;
-            this.updateLabels();
-        });
+        // Toggle labels (if exists)
+        const toggleLabels = d3.select('#toggle-labels');
+        if (!toggleLabels.empty()) {
+            toggleLabels.on('click', () => {
+                this.showLabels = !this.showLabels;
+                this.updateLabels();
+            });
+        }
         
         // Handle window resize
         window.addEventListener('resize', () => {
@@ -191,8 +211,8 @@ class ConnectomeVisualizer {
     }
     
     createVisualization() {
-        const width = 800;
-        const height = 600;  // Restored original height
+        const width = window.innerWidth;
+        const height = window.innerHeight;
         
         // Create force simulation
         this.simulation = d3.forceSimulation(this.nodes)
@@ -205,8 +225,12 @@ class ConnectomeVisualizer {
     }
     
     updateVisualization() {
-        const neurotransmitterFilter = d3.select('#neurotransmitter-filter').node().value;
-        const minStrength = +d3.select('#connection-strength').node().value;
+        // Get filter values (with safe checks)
+        const neurotransmitterFilterElement = d3.select('#neurotransmitter-filter').node();
+        const connectionStrengthElement = d3.select('#connection-strength').node();
+        
+        const neurotransmitterFilter = neurotransmitterFilterElement ? neurotransmitterFilterElement.value : 'all';
+        const minStrength = connectionStrengthElement ? +connectionStrengthElement.value : 0;
         
         // Filter edges
         let filteredEdges = this.edges.filter(edge => {
@@ -283,8 +307,14 @@ class ConnectomeVisualizer {
             .attr('class', 'node-label')
             .text(d => d.name)
             .style('display', this.showLabels ? 'block' : 'none')
+            .style('fill', '#ffffff')
+            .style('font-size', '10px')
+            .style('font-family', 'Arial, sans-serif')
+            .style('text-anchor', 'middle')
+            .style('pointer-events', 'none')
             .merge(label)
-            .style('display', this.showLabels ? 'block' : 'none');
+            .style('display', this.showLabels ? 'block' : 'none')
+            .style('fill', '#ffffff');
         
         // Update simulation
         this.simulation.alpha(0.3).restart();
@@ -362,7 +392,11 @@ class ConnectomeVisualizer {
             details += `<strong>Neurotransmitters:</strong> ${neurotransmitters.join(', ')}<br>`;
         }
         
-        d3.select('#node-details').html(details);
+        // Update node details panel (if exists)
+        const nodeDetailsElement = d3.select('#node-details');
+        if (!nodeDetailsElement.empty()) {
+            nodeDetailsElement.html(details);
+        }
     }
     
     showTooltip(event, node) {
@@ -393,12 +427,42 @@ class ConnectomeVisualizer {
     }
     
     handleResize() {
-        // No need to handle resize since we're using fixed dimensions
-        // The CSS will handle responsive behavior
+        // Update dimensions for full viewport
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        
+        this.svg
+            .attr('width', width)
+            .attr('height', height);
+            
+        this.width = width;
+        this.height = height;
+        
+        // Update force simulation center
+        if (this.simulation) {
+            this.simulation.force('center', d3.forceCenter(width / 2, height / 2));
+            this.simulation.alpha(0.3).restart();
+        }
     }
 }
 
-// 자동 초기화 코드 제거 - HTML에서 수동으로 초기화함
-// document.addEventListener('DOMContentLoaded', () => {
-//     new ConnectomeVisualizer();
-// });
+// Global function to create connectome visualization
+function createConnectomeVisualization(containerId) {
+    // Create SVG element in the specified container
+    const container = d3.select(`#${containerId}`);
+    container.selectAll('*').remove(); // Clear existing content
+    
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    
+    const svg = container.append('svg')
+        .attr('id', 'network-svg')
+        .attr('width', width)
+        .attr('height', height)
+        .style('background', '#000000');
+    
+    // Initialize the visualizer
+    new ConnectomeVisualizer();
+}
+
+// Auto-initialization removed - will be called manually from HTML
