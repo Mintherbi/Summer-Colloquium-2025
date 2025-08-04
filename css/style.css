@@ -864,6 +864,157 @@ input:focus, select:focus {
   margin: 0;
 }
 
+/* ============================================================================
+   DECISION MAKING RESEARCH TIMELINE SECTION
+   ============================================================================ */
+
+.section-decision-timeline {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #475569 75%, #64748b 100%);
+}
+
+.timeline-container-fullscreen {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.timeline-background {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 100px;
+}
+
+.timeline-entry {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+
+.timeline-year {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.timeline-image-container {
+  position: relative;
+  width: 280px;
+  height: 380px;
+}
+
+.timeline-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.timeline-image:hover {
+  transform: scale(1.03);
+}
+
+.timeline-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.timeline-image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7), transparent);
+  padding: 20px;
+  border-radius: 0 0 12px 12px;
+  color: #ffffff;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.timeline-image-container:hover .timeline-image-overlay {
+  transform: translateY(0);
+}
+
+.timeline-overlay-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #4ecdc4;
+}
+
+.timeline-overlay-text {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.timeline-connector {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(to right, #4ecdc4, #45b7d1);
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.timeline-entry:last-child .timeline-connector {
+  display: none;
+}
+
+.timeline-overlay-content {
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  width: 450px;
+  max-height: calc(100vh - 120px);
+  background: transparent;
+  padding: 40px;
+  border-radius: 12px;
+  color: #ffffff;
+  z-index: 10;
+}
+
+.timeline-overlay-content .project-title {
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  text-align: right;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.timeline-overlay-content .project-title-subsection {
+  font-size: 1.3rem;
+  margin: 25px 0 15px 0;
+  color: #4ecdc4;
+  text-align: right;
+  font-weight: 600;
+}
+
+.timeline-overlay-content p {
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+
 /* In Silico Section */
 .section-in-silico {
   width: 100vw;
@@ -1365,6 +1516,513 @@ input:focus, select:focus {
   margin-bottom: 20px;
   text-align: right;
   color: #ffffff;
+}
+
+/* ============================================================================
+   FREE WILL SECTION
+   ============================================================================ */
+
+.section-free-will {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.free-will-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.free-will-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 8rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: -0.02em;
+  margin: 0;
+  transition: all 0.3s ease;
+  text-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.free-will-title:hover {
+  transform: scale(1.02);
+  color: #2563eb;
+}
+
+/* ============================================================================
+   MY VISION SECTION
+   ============================================================================ */
+
+.section-my-vision {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 6rem 2rem;
+}
+
+.my-vision-container {
+  max-width: 1000px;
+  text-align: left;
+}
+
+.my-vision-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.my-vision-content {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+.my-vision-content p {
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+.vision-challenges {
+  margin: 2.5rem 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.vision-challenges li {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(8, 145, 178, 0.05));
+  border-left: 4px solid var(--primary-blue);
+  border-radius: 0 8px 8px 0;
+  transition: all 0.3s var(--ease-smooth);
+}
+
+.vision-challenges li:hover {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(8, 145, 178, 0.1));
+  transform: translateX(10px);
+}
+
+.vision-challenges li strong {
+  color: var(--primary-blue);
+  font-weight: 700;
+}
+
+.vision-conclusion {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--secondary-blue);
+  background: linear-gradient(135deg, rgba(26, 115, 232, 0.05), rgba(0, 82, 204, 0.02));
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(26, 115, 232, 0.2);
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+/* ============================================================================
+   THEORETICAL FRAMEWORK SECTIONS
+   ============================================================================ */
+
+.section-theoretical-framework,
+.section-lif-neurons,
+.section-spiking-networks,
+.section-latent-space {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+}
+
+.section-theoretical-framework {
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  color: #000000;
+}
+
+.section-lif-neurons {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  color: #000000;
+}
+
+.section-spiking-networks {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  color: #000000;
+}
+
+.section-latent-space {
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  color: #000000;
+}
+
+.theoretical-framework-container,
+.lif-neurons-container,
+.spiking-networks-container,
+.latent-space-container {
+  max-width: 1200px;
+  text-align: center;
+}
+
+.theoretical-framework-title,
+.lif-neurons-title,
+.spiking-networks-title,
+.latent-space-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.theoretical-framework-content,
+.lif-neurons-content,
+.spiking-networks-content,
+.latent-space-content {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  text-align: left;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.theoretical-framework-content p,
+.lif-neurons-content p,
+.spiking-networks-content p,
+.latent-space-content p {
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+/* Book Reference Styling */
+.theoretical-book-reference {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.theoretical-book-reference img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 1rem;
+}
+
+.theoretical-book-reference p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: 0;
+}
+
+/* LIF Neurons Image Styling */
+.lif-image-container {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.lif-image-container img {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 1rem;
+}
+
+.lif-image-container p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Spiking Networks Images Styling */
+.spiking-images-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin: 3rem 0;
+}
+
+.spiking-image-item {
+  text-align: center;
+}
+
+.spiking-image-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 1rem;
+}
+
+.spiking-image-item p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Latent Space Image Styling */
+.latent-space-image-container {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.latent-space-image-container img {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 1rem;
+}
+
+.latent-space-image-container p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Responsive Design for Theoretical Framework Sections */
+@media (max-width: 768px) {
+  .theoretical-framework-title,
+  .lif-neurons-title,
+  .spiking-networks-title,
+  .latent-space-title {
+    font-size: 2rem;
+  }
+  
+  .spiking-images-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .theoretical-book-reference img,
+  .lif-image-container img,
+  .latent-space-image-container img {
+    max-width: 100%;
+  }
+}
+
+/* ============================================================================
+   NEUROSECURITY SECTION
+   ============================================================================ */
+
+.section-neurosecurity {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 6rem 2rem;
+}
+
+.neurosecurity-container {
+  max-width: 1200px;
+  text-align: center;
+}
+
+.neurosecurity-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 4rem;
+  background: linear-gradient(135deg, #1a73e8, #0052cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 8px rgba(26, 115, 232, 0.3);
+}
+
+.neurosecurity-definition {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.definition-quote {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.8;
+  margin: 0 0 2rem 0;
+  padding: 2rem;
+  border-left: 5px solid #1a73e8;
+  background: linear-gradient(135deg, rgba(26, 115, 232, 0.05), rgba(0, 82, 204, 0.02));
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  color: #2c3e50;
+  position: relative;
+}
+
+.definition-quote::before {
+  content: '"';
+  font-size: 4rem;
+  color: #1a73e8;
+  position: absolute;
+  left: -0.5rem;
+  top: -0.5rem;
+  font-family: serif;
+  opacity: 0.6;
+}
+
+.definition-quote::after {
+  content: '"';
+  font-size: 4rem;
+  color: #1a73e8;
+  position: absolute;
+  right: 1rem;
+  bottom: -1rem;
+  font-family: serif;
+  opacity: 0.6;
+}
+
+.definition-citation {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  color: #666;
+  text-align: right;
+  margin-top: 1rem;
+  font-style: normal;
+}
+
+.definition-citation em {
+  font-style: italic;
+}
+
+.definition-citation sup {
+  color: #1a73e8;
+  font-weight: bold;
+}
+
+/* ============================================================================
+   SIMULATION PLATFORMS SECTION
+   ============================================================================ */
+
+.section-platforms {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+.platforms-grid-horizontal {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0;
+}
+
+.platform-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s var(--ease-smooth);
+  border: 2px solid var(--border-light);
+}
+
+.platform-card:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-xl);
+  z-index: 10;
+}
+
+.platform-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.platform-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  transition: transform 0.3s ease;
+  border: none;
+  outline: none;
+}
+
+.platform-card:hover .platform-thumbnail {
+  transform: scale(1.05);
+}
+
+.platform-content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-smooth);
+}
+
+.platform-card:hover .platform-content-overlay {
+  opacity: 1;
+}
+
+.platform-content-overlay h3 {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.platform-content-overlay h3 a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s var(--ease-smooth);
+}
+
+.platform-content-overlay h3 a:hover {
+  color: #4ecdc4;
+}
+
+.platform-content-overlay p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* ============================================================================
