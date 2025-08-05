@@ -1510,10 +1510,29 @@ input:focus, select:focus {
 
 .free-will-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
+  text-align: center;
+  color: #ffffff;
+}
+
+.free-will-implications {
+    max-width: 800px;
+    margin-top: 2rem;
+}
+
+.free-will-implications .project-title-subsection {
+    color: #4ecdc4;
+    text-align: center;
+}
+
+.free-will-implications p {
+    color: #e2e8f0;
+    text-align: center;
+    margin-bottom: 1.5rem;
 }
 
 .free-will-title {
