@@ -145,93 +145,31 @@
     <div class="section-transition"></div>
     
     <!-- Historical lineage section -->
-    <div class="section-historical">
-      <!-- C. elegans Connectome Background -->
-      <div id="connectome-container">
-        <svg id="network-svg"></svg>
-        
-        <!-- Interactive Controls Panel (Over graph) -->
-        <div class="historical-controls-panel">
-          <div class="control-group">
-            <label for="neurotransmitter-filter">Neurotransmitter Filter:</label>
-            <select id="neurotransmitter-filter">
-              <option value="all">All</option>
-              <option value="exc">Excitatory</option>
-              <option value="inh">Inhibitory</option>
-              <option value="ach">Acetylcholine</option>
-              <option value="gaba">GABA</option>
-              <option value="glu">Glutamate</option>
-              <option value="da">Dopamine</option>
-              <option value="ser">Serotonin</option>
-            </select>
-          </div>
-          <div class="control-group">
-            <label for="connection-strength">Min Connection Strength:</label>
-            <input type="range" id="connection-strength" min="1" max="20" value="1">
-            <span id="strength-value">1</span>
-          </div>
-          <div class="control-group">
-            <button id="reset-camera">Reset Camera</button>
-            <button id="toggle-labels">Toggle Labels</button>
-          </div>
-          <div id="hover-info">Hover over a neuron to see details</div>
-        </div>
-        
-        <!-- Neurotransmitter Legend (Over graph) -->
-        <div class="historical-legend">
-          <div class="legend-title">Neurotransmitter Legend</div>
-          <div class="legend-item">
-            <div class="legend-color" style="background-color: #ff0000;"></div>
-            <span>Excitatory (exc)</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-color" style="background-color: #0000ff;"></div>
-            <span>Inhibitory (inh)</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-color" style="background-color: #00ff00;"></div>
-            <span>Acetylcholine (ach)</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-color" style="background-color: #ffff00;"></div>
-            <span>GABA (gaba)</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-color" style="background-color: #ff00ff;"></div>
-            <span>Glutamate (glu)</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-color" style="background-color: #00ffff;"></div>
-            <span>Dopamine (da)</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-color" style="background-color: #ffa500;"></div>
-            <span>Serotonin (ser)</span>
-          </div>
-        </div>
-        
-        <!-- Right-aligned Content Overlay -->
-        <div class="historical-overlay-content">
-          <div class="project-title">Historical Lineage</div>
-          <div class="section-content">
-            <p>
-              The study of neural networks traces back to the foundational work on <em>C. elegans</em>, 
-              the first organism to have its complete connectome mapped. This 302-neuron nervous system 
-              serves as a crucial reference point for understanding how biological neural networks 
-              process information and make decisions.
-            </p>
-            
-            <div class="project-title-subsection">C. elegans Connectome</div>
-            <p>
-              Understanding the connectome enables us to control behavior and decision-making processes in biological entities.
-            </p>
-            
-            <div class="project-title-subsection">Challenging Human Free Will</div>
-            <p>
-              Scientific research challenging human free will has been conducted for many years already. 
-              Choice prediction research demonstrates our ability to anticipate decisions before conscious awareness.
-            </p>
-          </div>
+    <div class="section-historical-static">
+      <div class="historical-static-bg">
+        <img src="src/img/Historical_Lineage/Elegans Connectome Left.png" alt="C. Elegans Connectome Left" class="bg-left">
+        <img src="src/img/Historical_Lineage/Elegans Connectome Right.png" alt="C. Elegans Connectome Right" class="bg-right">
+      </div>
+      <div class="historical-overlay-content">
+        <div class="project-title">Historical Lineage</div>
+        <div class="section-content">
+          <p>
+            The study of neural networks traces back to the foundational work on <em>C. elegans</em>, 
+            the first organism to have its complete connectome mapped. This 302-neuron nervous system 
+            serves as a crucial reference point for understanding how biological neural networks 
+            process information and make decisions.
+          </p>
+          
+          <div class="project-title-subsection">C. elegans Connectome</div>
+          <p>
+            Understanding the connectome enables us to control behavior and decision-making processes in biological entities.
+          </p>
+          
+          <div class="project-title-subsection">Challenging Human Free Will</div>
+          <p>
+            Scientific research challenging human free will has been conducted for many years already. 
+            Choice prediction research demonstrates our ability to anticipate decisions before conscious awareness.
+          </p>
         </div>
       </div>
     </div>
@@ -356,90 +294,63 @@
     </div>
 
     <!-- Decision Making Research Timeline Section -->
-    <div class="section-decision-timeline">
-      <div class="timeline-container-fullscreen">
-        <!-- Timeline Background -->
-        <div class="timeline-background">
-          <!-- Timeline entries will be positioned here -->
-          
-          <!-- 2009 Research Entry -->
-          <div class="timeline-entry timeline-2009">
-            <div class="timeline-year">2009</div>
-            <div class="timeline-image-container">
-              <div class="timeline-image">
-                <img src="src/img/Historical_Lineage/Decoding the outcome of decisions before and after they reached awareness.webp" alt="2009 PFC Research" />
-              </div>
-              <div class="timeline-image-overlay">
-                <div class="timeline-overlay-title">Prefrontal Cortex Prediction</div>
-                <div class="timeline-overlay-text">
-                  Predicted decisions <strong>7-10 seconds</strong> before conscious awareness by observing PFC activity
-                </div>
-              </div>
+    <div class="section-decision-timeline section-theory">
+        <div class="theory-container">
+            <h1 class="theory-title">Decision Making Research Timeline</h1>
+            <div class="section-content">
+                <p>
+                    Scientific evidence demonstrates that human decision-making can be predicted and potentially
+                    manipulated through various technological approaches. This timeline shows key research milestones
+                    in decoding human choice before conscious awareness.
+                </p>
             </div>
-            <div class="timeline-connector"></div>
-          </div>
-          
-          <!-- 2019 Research Entry -->
-          <div class="timeline-entry timeline-2019">
-            <div class="timeline-year">2019</div>
-            <div class="timeline-image-container">
-              <div class="timeline-image">
-                <img src="src/img/Historical_Lineage/Decoding the contents and strength of imagery before volitional engagement.webp" alt="2019 V1 Research" />
-              </div>
-              <div class="timeline-image-overlay">
-                <div class="timeline-overlay-title">Visual Cortex Prediction</div>
-                <div class="timeline-overlay-text">
-                  Extended prediction to <strong>11 seconds</strong> before choice using V1 neuroimaging
+            <div class="decision-timeline-container">
+                <!-- Step 1: 2009 Research -->
+                <div class="decision-step">
+                    <div class="decision-step-year">2009</div>
+                    <div class="decision-image-container">
+                        <img src="src/img/Historical_Lineage/Decoding the outcome of decisions before and after they reached awareness.webp" alt="2009 PFC Research" />
+                    </div>
+                    <h3>Prefrontal Cortex Prediction</h3>
+                    <p>Predicted decisions <strong>7-10 seconds</strong> before conscious awareness by observing PFC activity.</p>
+                    <div class="decision-connector"></div>
                 </div>
-              </div>
-            </div>
-            <div class="timeline-connector"></div>
-          </div>
-          
-          <!-- 2025 Research Entry -->
-          <div class="timeline-entry timeline-2025">
-            <div class="timeline-year">2025</div>
-            <div class="timeline-image-container">
-              <div class="timeline-image">
-                <img src="src/img/Historical_Lineage/A foundation model to predict and capture human cognition.webp" alt="2025 LLM Research" />
-              </div>
-              <div class="timeline-image-overlay">
-                <div class="timeline-overlay-title">LLM-Based Prediction</div>
-                <div class="timeline-overlay-text">
-                  AI models predict human behavior across <strong>diverse psychological</strong> domains
+                <!-- Step 2: 2019 Research -->
+                <div class="decision-step">
+                    <div class="decision-step-year">2019</div>
+                    <div class="decision-image-container">
+                        <img src="src/img/Historical_Lineage/Decoding the contents and strength of imagery before volitional engagement.webp" alt="2019 V1 Research" />
+                    </div>
+                    <h3>Visual Cortex Prediction</h3>
+                    <p>Extended prediction to <strong>11 seconds</strong> before choice using V1 neuroimaging.</p>
+                    <div class="decision-connector"></div>
                 </div>
-              </div>
+                <!-- Step 3: 2025 Research -->
+                <div class="decision-step">
+                    <div class="decision-step-year">2025</div>
+                    <div class="decision-image-container">
+                        <img src="src/img/Historical_Lineage/A foundation model to predict and capture human cognition.webp" alt="2025 LLM Research" />
+                    </div>
+                    <h3>LLM-Based Prediction</h3>
+                    <p>AI models predict human behavior across <strong>diverse psychological</strong> domains.</p>
+                </div>
             </div>
-            <div class="timeline-connector"></div>
-          </div>
+            <div class="section-content">
+                <div class="project-title-subsection">Implications for Free Will</div>
+                <p>
+                    This progression from brain scanning to AI prediction represents a fundamental challenge
+                    to human autonomy. As prediction accuracy increases and time windows expand,
+                    the question of genuine free will becomes increasingly urgent in our digital age.
+                </p>
+
+                <div class="project-title-subsection">Neurosecurity Concerns</div>
+                <p>
+                    These advances in decision prediction technology raise critical questions about cognitive
+                    privacy and the need for protective measures to preserve human agency and autonomous choice
+                    in an increasingly monitored digital environment.
+                </p>
+            </div>
         </div>
-        
-        <!-- Content Overlay (Right Side) -->
-        <div class="timeline-overlay-content">
-          <div class="project-title">Decision Making Research Timeline</div>
-          <div class="section-content">
-            <p>
-              Scientific evidence demonstrates that human decision-making can be predicted and potentially 
-              manipulated through various technological approaches. This timeline shows key research milestones 
-              in decoding human choice before conscious awareness.
-            </p>
-            
-            <div class="project-title-subsection">Implications for Free Will</div>
-            <p>
-              This progression from brain scanning to AI prediction represents a fundamental challenge 
-              to human autonomy. As prediction accuracy increases and time windows expand, 
-              the question of genuine free will becomes increasingly urgent in our digital age.
-            </p>
-            
-            <div class="project-title-subsection">Neurosecurity Concerns</div>
-            <p>
-              These advances in decision prediction technology raise critical questions about cognitive 
-              privacy and the need for protective measures to preserve human agency and autonomous choice 
-              in an increasingly monitored digital environment.
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Free Will Question Section -->
@@ -450,7 +361,8 @@
     </div>
 
     <!-- My Vision Section -->
-    <div class="section-my-vision">
+    <div class="section-my-vision section-theory">
+      <div class="my-vision-background"></div>
       <div class="my-vision-container">
         <h1 class="my-vision-title">My Vision: Accessible Brain Structure Learning</h1>
         <div class="my-vision-content">
@@ -468,7 +380,7 @@
     </div>
 
     <!-- Neurosecurity Definition Section -->
-    <div class="section-neurosecurity">
+    <div class="section-neurosecurity section-theory">
       <div class="neurosecurity-container">
         <h1 class="neurosecurity-title">Neurosecurity</h1>
         <div class="neurosecurity-definition">
@@ -483,52 +395,100 @@
     </div>
 
     <!-- Simulation Platforms Section -->
-    <div class="section-platforms">
-      <div class="platforms-grid-horizontal">
-        <div class="platform-card">
-          <div class="platform-image">
-            <img src="src/img/My Community of Practice/NEST.png" alt="NEST Simulator" class="platform-thumbnail">
-          </div>
-          <div class="platform-content-overlay">
-            <h3><a href="https://nest-simulator.org/" target="_blank">NEST Simulator</a></h3>
-            <p>A simulator for spiking neural network models that focuses on the dynamics, size and structure of neural systems rather than on the exact morphology of individual neurons.</p>
-          </div>
+    <div class="section-platforms-fullscreen">
+        <div class="platforms-grid-vertical">
+            <div class="platform-card-fullscreen">
+                <div class="platform-image-fullscreen">
+                    <img src="src/img/My Community of Practice/NEST.png" alt="NEST Simulator">
+                </div>
+                <div class="platform-content-fullscreen">
+                    <h3><a href="https://nest-simulator.org/" target="_blank">NEST Simulator</a></h3>
+                    <p>A simulator for spiking neural network models that focuses on the dynamics, size and structure of neural systems rather than on the exact morphology of individual neurons.</p>
+                </div>
+            </div>
+            <div class="platform-card-fullscreen">
+                <div class="platform-image-fullscreen">
+                    <img src="src/img/My Community of Practice/OpenWorm.png" alt="OpenWorm">
+                </div>
+                <div class="platform-content-fullscreen">
+                    <h3><a href="https://openworm.org/" target="_blank">OpenWorm</a></h3>
+                    <p>An open science project dedicated to creating the world's first virtual organism - a complete computational model of the C. elegans nematode.</p>
+                </div>
+            </div>
+            <div class="platform-card-fullscreen">
+                <div class="platform-image-fullscreen">
+                    <img src="src/img/My Community of Practice/Spore.png" alt="Spore">
+                </div>
+                <div class="platform-content-fullscreen">
+                    <h3><a href="https://www.spore.com/" target="_blank">Spore</a></h3>
+                    <p>A multi-genre single-player god game that allows players to develop a species from a microscopic organism to its evolution into a complex animal.</p>
+                </div>
+            </div>
+            <div class="platform-card-fullscreen">
+                <div class="platform-image-fullscreen">
+                    <img src="src/img/My Community of Practice/AnimatLab.png" alt="AnimatLab">
+                </div>
+                <div class="platform-content-fullscreen">
+                    <h3><a href="http://www.animatlab.com/" target="_blank">AnimatLab</a></h3>
+                    <p>A physics-based simulation environment for creating virtual worlds, organisms, and machines that can be used to study neural mechanisms and behavior.</p>
+                </div>
+            </div>
         </div>
-        <div class="platform-card">
-          <div class="platform-image">
-            <img src="src/img/My Community of Practice/OpenWorm.png" alt="OpenWorm" class="platform-thumbnail">
-          </div>
-          <div class="platform-content-overlay">
-            <h3><a href="https://openworm.org/" target="_blank">OpenWorm</a></h3>
-            <p>An open science project dedicated to creating the world's first virtual organism - a complete computational model of the C. elegans nematode.</p>
-          </div>
+    </div>
+
+    <!-- Methodology Section 1: LIF & SNN -->
+    <div class="section-methodology-lif-snn section-theory">
+        <div class="theory-container">
+            <h1 class="theory-title">1. LIF Neuron & Spiking Neural Network (SNN)</h1>
+            <div class="method-content-container">
+                <div class="method-image-container-large">
+                    <img src="src/img/Method/LIF Neuron Channel.png" alt="LIF Neuron Model" />
+                    <p class="caption">LIF Neuron Model</p>
+                </div>
+                <div class="method-image-container-large">
+                    <img src="src/img/Method/Spiking Neural Network.png" alt="Spiking Neural Network" />
+                    <p class="caption">Spiking Neural Network</p>
+                </div>
+            </div>
+            <div class="theory-content">
+                <p>The simulation starts with computationally efficient Leaky Integrate-and-Fire (LIF) neurons. These are assembled into Spiking Neural Networks (SNNs), where neurons communicate through discrete, timed spikes, capturing the temporal dynamics of real neural processing.</p>
+            </div>
         </div>
-        <div class="platform-card">
-          <div class="platform-image">
-            <img src="src/img/My Community of Practice/Spore.png" alt="Spore" class="platform-thumbnail">
-          </div>
-          <div class="platform-content-overlay">
-            <h3><a href="https://www.spore.com/" target="_blank">Spore</a></h3>
-            <p>A multi-genre single-player god game that allows players to develop a species from a microscopic organism to its evolution into a complex animal.</p>
-          </div>
+    </div>
+
+    <!-- Methodology Section 2: Latent Space -->
+    <div class="section-methodology-latent-space section-theory">
+        <div class="theory-container">
+            <h1 class="theory-title">2. Analysis in Latent Space</h1>
+            <div class="method-content-container">
+                <div class="method-image-container-full">
+                    <img src="src/img/Method/Neural Activity in Latent Space.png" alt="Latent Space Visualization" />
+                </div>
+            </div>
+            <div class="theory-content">
+                <p>To make the complex, high-dimensional neural firing patterns intuitive, we use dimensionality reduction techniques. This translates the neural activity into a lower-dimensional 'latent space', revealing the underlying structure and dynamics of the network for clear visualization.</p>
+            </div>
         </div>
-        <div class="platform-card">
-          <div class="platform-image">
-            <img src="src/img/My Community of Practice/AnimatLab.png" alt="AnimatLab" class="platform-thumbnail">
-          </div>
-          <div class="platform-content-overlay">
-            <h3><a href="http://www.animatlab.com/" target="_blank">AnimatLab</a></h3>
-            <p>A physics-based simulation environment for creating virtual worlds, organisms, and machines that can be used to study neural mechanisms and behavior.</p>
-          </div>
+    </div>
+
+    <!-- Methodology Section 3: Connectome Visualization -->
+    <div class="section-methodology-connectome">
+        <div id="connectome-visualization-container">
+            <svg id="network-svg-methodology"></svg>
         </div>
-      </div>
+        <div class="connectome-overlay-content">
+            <h1 class="theory-title">3. Neural Connection Visualization</h1>
+            <div class="theory-content">
+                <p>Finally, the structural connections of the neural network (the connectome) are visualized. This interactive graph allows for exploring the intricate web of connections, filtering by neuron type, and understanding the static architecture that gives rise to the dynamic activity.</p>
+            </div>
+        </div>
     </div>
 
     <!-- Theoretical Framework Section -->
-    <div class="section-theoretical-framework">
-      <div class="theoretical-framework-container">
-        <h1 class="theoretical-framework-title">Theoretical Framework: LIF Neurons and Spiking Neural Networks</h1>
-        <div class="theoretical-framework-content">
+    <div class="section-theoretical-framework section-theory">
+      <div class="theory-container">
+        <h1 class="theory-title">Theoretical Foundation</h1>
+        <div class="theory-content">
           <p>The simulation will be based on established neuroscience theory, primarily drawing from Peter Dayan and Larry Abbott's "Theoretical Neuroscience":</p>
           
           <div class="theoretical-book-reference">
@@ -540,10 +500,10 @@
     </div>
 
     <!-- Leaky Integrate-and-Fire (LIF) Neurons Section -->
-    <div class="section-lif-neurons">
-      <div class="lif-neurons-container">
-        <h1 class="lif-neurons-title">Leaky Integrate-and-Fire (LIF) Neurons</h1>
-        <div class="lif-neurons-content">
+    <div class="section-lif-neurons section-theory" style="display: none;">
+      <div class="theory-container">
+        <h1 class="theory-title">Leaky Integrate-and-Fire (LIF) Neurons</h1>
+        <div class="theory-content">
           <p>The foundation of the simulation uses LIF neuron models, which provide a balance between biological realism and computational efficiency. These models capture essential neural dynamics while remaining computationally tractable for real-time interaction.</p>
           
           <div class="lif-image-container">
@@ -555,10 +515,10 @@
     </div>
 
     <!-- Spiking Neural Networks Section -->
-    <div class="section-spiking-networks">
-      <div class="spiking-networks-container">
-        <h1 class="spiking-networks-title">Spiking Neural Networks (SNNs)</h1>
-        <div class="spiking-networks-content">
+    <div class="section-spiking-networks section-theory" style="display: none;">
+      <div class="theory-container">
+        <h1 class="theory-title">Spiking Neural Networks (SNNs)</h1>
+        <div class="theory-content">
           <p>Rather than abstract neural network representations, the platform will implement spiking neural networks that model the temporal dynamics of neural communication. This approach provides users with a more authentic understanding of how neurons actually communicate through discrete spikes.</p>
           
           <div class="spiking-images-container">
@@ -576,10 +536,10 @@
     </div>
 
     <!-- Dynamic Visualization: Latent Space Representation Section -->
-    <div class="section-latent-space">
-      <div class="latent-space-container">
-        <h1 class="latent-space-title">Dynamic Visualization: Latent Space Representation</h1>
-        <div class="latent-space-content">
+    <div class="section-latent-space section-theory" style="display: none;">
+      <div class="theory-container">
+        <h1 class="theory-title">Dynamic Visualization: Latent Space Representation</h1>
+        <div class="theory-content">
           <p>To make neural dynamics more intuitive, I will represent neural firing patterns in latent space - a lower-dimensional space that captures the essential patterns of neural activity:</p>
           
           <div class="latent-space-image-container">
@@ -589,394 +549,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Scripts -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="js/connectome-visualizer.js"></script>
-    <script>
-      // Initialize historical connectome
-      createConnectomeVisualization('historical-connectome-container');
-    </script>
-  </body>
-</html> 
-          Major international research initiatives demonstrate the global commitment to this ambitious goal.
-        </p>
-        
-        <p style="margin-top: 30px;">
-          These projects represent more than technological achievements—they embody a new scientific methodology 
-          where <strong>computational simulation becomes a primary research tool</strong> alongside traditional 
-          experimental approaches. The ability to create digital replicas of neural circuits, test hypotheses 
-          in silico, and simulate brain functions at multiple scales opens unprecedented possibilities for 
-          understanding consciousness, decision-making, and the very nature of mind.
-        </p>
-        <div style="margin: 15px 0; padding: 10px; background-color: #f0f8ff; font-size: 14px; color: #555;">
-          <strong>In Silico Revolution:</strong> The transition from studying brains in living organisms (in vivo) 
-          and laboratory dishes (in vitro) to computer simulations (in silico) represents a fundamental shift 
-          in neuroscience methodology, enabling researchers to explore questions about consciousness and free will 
-          that were previously impossible to investigate experimentally.
-        </div>
-      </div>
-      
-      <!-- Neurosecurity: Protecting Free Will in the Digital Age -->
-      <div class="project-title-subsection">Neurosecurity: Protecting Free Will in the Digital Age</div>
-      <div class="section-content">
-        <p>
-          As our understanding of neural mechanisms deepens and brain-computer interfaces become more sophisticated, 
-          a new field has emerged to address the critical need for protecting human cognitive autonomy. 
-          <strong>Neurosecurity</strong> represents the intersection of neuroscience, cybersecurity, and ethics, 
-          focusing on safeguarding the most fundamental aspects of human identity and decision-making.
-        </p>
-        <blockquote style="margin: 20px 0; padding: 15px 20px; background-color: #f8f9fa; font-style: italic; color: #495057;">
-          "The protection of the confidentiality, integrity, and availability of neural devices from malicious parties with the goal of preserving the safety of a person's neural mechanisms, neural computation, and free will"
-          <footer style="margin-top: 10px; font-style: normal; font-size: 12px; color: #666;">
-            — <cite>Ienca, M., & Haselager, P. (2016). Hacking the brain: brain-computer interfacing technology and the ethics of neurosecurity. <em>Neurosurgical Focus</em>, 40(5), E13.</cite><sup><a href="https://thejns.org/focus/view/journals/neurosurg-focus/27/1/article-pE7.xml">[3]</a></sup>
-          </footer>
-        </blockquote>
-        <p>
-          This definition encapsulates the urgent need to develop protective measures as neural technologies 
-          advance and become more integrated into daily life.
-        </p>
-        <p>
-          The historical trajectory from early connectome mapping through advanced brain simulation 
-          to predictive decision algorithms culminates in this critical question: <strong>How do we 
-          preserve human agency in an age where thoughts and decisions can be monitored, predicted, 
-          and potentially influenced?</strong> Neurosecurity emerges not just as a technical challenge, 
-          but as a fundamental requirement for maintaining human dignity and autonomy in the digital age.
-        </p>
-      </div>
-    </div>
-    
-    <!-- Section transition -->
-    <div class="section-transition"></div>
-    
-    <!-- Community of practice section -->
-    <div class="section-community">
-      <div class="project-title">My Community of Practice</div>
-      <div class="section-content">
-      <p>
-        My vision is to create a platform that makes brain structure accessible to everyone—bridging 
-        the gap between complex scientific simulations and engaging educational experiences. Currently, 
-        the landscape is divided between highly accurate but resource-intensive scientific tools and 
-        entertaining but educationally limited games.
-      </p>
-      
-      <div class="project-title-subsection">Scientific Simulation Platforms</div>
-      <div class="section-content">
-        <p>
-          Scientific simulation platforms offer precise neural modeling but require significant computational 
-          resources and expertise:
-        </p>
-        
-        <div class="platform-showcase">
-          <div class="platform-item">
-            <div class="platform-image">
-              <img src="src/img/My Community of Practice/NEST.png" alt="NEST Simulator" />
-            </div>
-            <div class="platform-content">
-              <h4><a href="https://www.nest-simulator.org/" target="_blank">NEST Simulator</a></h4>
-              <p>A highly accurate neural network simulation tool that models spiking neural networks with 
-              biological precision, but demands substantial computational power and technical knowledge.</p>
-            </div>
-          </div>
-          
-          <div class="platform-item">
-            <div class="platform-image">
-              <img src="src/img/My Community of Practice/OpenWorm.png" alt="OpenWorm" />
-            </div>
-            <div class="platform-content">
-              <h4><a href="https://openworm.org/" target="_blank">OpenWorm</a></h4>
-              <p>An ambitious project creating a comprehensive digital simulation of C. elegans, providing 
-              scientifically accurate modeling but complex for general public understanding.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="project-title-subsection">Gaming and Interactive Platforms</div>
-      <div class="section-content">
-        <p>
-          Gaming platforms prioritize engagement and accessibility but often lack educational depth:
-        </p>
-        
-        <div class="platform-showcase">
-          <div class="platform-item">
-            <div class="platform-image">
-              <img src="src/img/My Community of Practice/Spore.png" alt="Spore Game" />
-            </div>
-            <div class="platform-content">
-              <h4><a href="https://www.spore.com/" target="_blank">Spore</a></h4>
-              <p>A evolution simulation game that allows players to directly manipulate creature bodies 
-              and experience natural survival strategies. While fun and engaging, it has limitations 
-              as an educational tool for understanding neural mechanisms.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="project-title-subsection">Hybrid Platforms</div>
-      <div class="section-content">
-        <p>
-          Some platforms attempt to bridge scientific accuracy with accessibility:
-        </p>
-        
-        <div class="platform-showcase">
-          <div class="platform-item">
-            <div class="platform-content">
-              <h4><a href="https://playground.mujoco.org/" target="_blank">MuJoCo Playground</a></h4>
-              <p>A physics simulation environment that balances computational efficiency with realistic modeling, 
-              making complex simulations more accessible to researchers and developers.</p>
-            </div>
-          </div>
-          
-          <div class="platform-item">
-            <div class="platform-image">
-              <img src="src/img/My Community of Practice/AnimatLab.png" alt="AnimatLab" />
-            </div>
-            <div class="platform-content">
-              <h4><a href="https://www.animatlab.com/" target="_blank">AnimatLab</a></h4>
-              <p>A neuromechanical simulation tool that combines neural network modeling with biomechanical 
-              simulation, offering a middle ground between complexity and usability.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="project-title-subsection">My Vision: Accessible Brain Structure Learning</div>
-      <div class="section-content">
-        <p>
-          What I want to create is a platform that enables people to easily understand brain structure 
-          through interactive exploration. The challenge is finding the sweet spot between scientific 
-          accuracy and public accessibility:
-        </p>
-        <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa;">
-          <ul style="margin: 0; padding-left: 20px;">
-            <li><strong>Scientific platforms</strong> are accurate but require high computational power and are burdensome for general understanding</li>
-            <li><strong>Gaming platforms</strong> like Spore allow direct body manipulation and survival strategy thinking, but lack educational depth</li>
-            <li><strong>My goal</strong> is to create an educational platform that combines the engagement of games with the educational value of scientific simulation</li>
-          </ul>
-        </div>
-        <p>
-          This platform would democratize neuroscience education, making complex brain structures 
-          and neural processes understandable and engaging for students, educators, and curious minds 
-          without requiring extensive technical background or computational resources.
-        </p>
-      </div>
-    </div>
-    
-    <!-- Section transition -->
-    <div class="section-transition"></div>
-    
-    <!-- Situated technology section -->
-    <div class="section-situated">
-      <div class="project-title">Situated Technology</div>
-      <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-    </div>
-    
-    <!-- Section transition -->
-    <div class="section-transition"></div>
-    
-    <!-- Methods section -->
-    <div class="section-methods">
-    <div class="project-title">Methods</div>
-    <div class="section-content">
-      <p>
-        My methodological approach combines my interdisciplinary background in architecture, computational 
-        neuroscience, and computer security to create an accessible brain simulation platform. This unique 
-        perspective allows me to bridge the gap between complex neural modeling and intuitive visual design.
-      </p>
-      
-      <div class="project-title-subsection">Interdisciplinary Foundation</div>
-      <div class="section-content">
-        <p>
-          My research methodology draws from three key domains:
-        </p>
-        <ul>
-          <li><strong>Architecture</strong> - Spatial reasoning and 3D visualization skills for creating intuitive brain structure representations</li>
-          <li><strong>Computational Neuroscience</strong> - Understanding of neural mechanisms and mathematical modeling of brain functions</li>
-          <li><strong>Computer Security</strong> - Awareness of digital vulnerabilities and the importance of protecting neural data and cognitive autonomy</li>
-        </ul>
-        <p>
-          This interdisciplinary foundation enables me to approach brain simulation from both technical and 
-          design perspectives, ensuring both scientific accuracy and user accessibility.
-        </p>
-      </div>
-      
-      <div class="project-title-subsection">Technical Implementation: Rhino C# Platform</div>
-      <div class="section-content">
-        <p>
-          I plan to implement the brain simulation platform using <strong>Rhino C# (Grasshopper)</strong>, 
-          leveraging its powerful 3D modeling and computational design capabilities:
-        </p>
-        <div style="margin: 20px 0; padding: 15px; background-color: #f0f8ff;">
-          <ul style="margin: 0; padding-left: 20px;">
-            <li><strong>3D Visualization</strong> - Create interactive 3D representations of neural networks and brain structures</li>
-            <li><strong>Real-time Simulation</strong> - Implement dynamic neural activity visualization with immediate feedback</li>
-            <li><strong>User Interaction</strong> - Enable direct manipulation of neural parameters and network topology</li>
-            <li><strong>Educational Interface</strong> - Design intuitive controls that make complex neuroscience accessible to general users</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="project-title-subsection">Theoretical Framework: LIF Neurons and Spiking Neural Networks</div>
-      <div class="section-content">
-        <p>
-          The simulation will be based on established neuroscience theory, primarily drawing from 
-          <strong>Peter Dayan and Larry Abbott's "Theoretical Neuroscience"</strong>:
-        </p>
-        
-        <div style="text-align: center; margin: 20px 0;">
-          <img src="src/img/Method/Theoretical Neuroscience.png" alt="Theoretical Neuroscience Book" style="max-width: 200px; margin: 10px 0;" />
-          <p style="font-size: 12px; color: #666; margin: 5px 0;">Foundational theoretical framework from Dayan & Abbott's "Theoretical Neuroscience"</p>
-        </div>
-        
-        <h4>Leaky Integrate-and-Fire (LIF) Neurons</h4>
-        <p>
-          The foundation of the simulation uses LIF neuron models, which provide a balance between 
-          biological realism and computational efficiency. These models capture essential neural 
-          dynamics while remaining computationally tractable for real-time interaction.
-        </p>
-        <div style="text-align: center; margin: 20px 0;">
-          <img src="src/img/Method/LIF Neuron Channel.png" alt="LIF Neuron Model" style="max-width: 300px; margin: 10px 0;" />
-          <p style="font-size: 12px; color: #666; margin: 5px 0;">LIF neuron model showing membrane potential dynamics and channel behavior</p>
-        </div>
-        
-        <h4>Spiking Neural Networks (SNNs)</h4>
-        <p>
-          Rather than abstract neural network representations, the platform will implement 
-          spiking neural networks that model the temporal dynamics of neural communication. 
-          This approach provides users with a more authentic understanding of how neurons 
-          actually communicate through discrete spikes.
-        </p>
-        <div style="text-align: center; margin: 20px 0;">
-          <img src="src/img/Method/Spiking Neural Network.png" alt="Spiking Neural Network" style="max-width: 400px; margin: 10px 0;" />
-          <p style="font-size: 12px; color: #666; margin: 5px 0;">Spiking neural network architecture showing temporal spike patterns</p>
-        </div>
-        <div style="text-align: center; margin: 20px 0;">
-          <img src="src/img/Method/Neural Spike.png" alt="Neural Spike Visualization" style="max-width: 500px; margin: 10px 0;" />
-          <p style="font-size: 12px; color: #666; margin: 5px 0;">Detailed visualization of neural spike timing and propagation</p>
-        </div>
-      </div>
-      
-      <div class="project-title-subsection">Dynamic Visualization: Latent Space Representation</div>
-      <div class="section-content">
-        <p>
-          To make neural dynamics more intuitive, I will represent neural firing patterns in 
-          <strong>latent space</strong> - a lower-dimensional space that captures the essential 
-          patterns of neural activity:
-        </p>
-        
-        <div style="text-align: center; margin: 20px 0;">
-          <img src="src/img/Method/Neural Activity in Latent Space.png" alt="Neural Activity in Latent Space" style="max-width: 400px; margin: 10px 0;" />
-          <p style="font-size: 12px; color: #666; margin: 5px 0;">Neural firing patterns mapped to lower-dimensional latent space for intuitive understanding</p>
-        </div>
-        
-        <div style="margin: 20px 0; padding: 15px; background-color: #fff3cd;">
-          <p style="margin: 0;">
-            <strong>Pedagogical Advantage:</strong> By visualizing neural activity in latent space, 
-            users can observe how complex patterns of neural firing translate to understandable 
-            behavioral outputs, making the connection between neural mechanism and function more apparent.
-          </p>
-        </div>
-      </div>
-      
-      <div class="project-title-subsection">Morphological Growth Modeling</div>
-      <div class="section-content">
-        <p>
-          The platform will incorporate research on neural growth patterns to provide realistic 
-          representations of how neurons develop their complex morphologies. Drawing from 
-          established computational models:
-        </p>
-        
-        <div style="text-align: center; margin: 20px 0;">
-          <img src="src/img/Method/Growth in Field.png" alt="Neural Growth in Field" style="max-width: 300px; margin: 10px 0;" />
-          <p style="font-size: 12px; color: #666; margin: 5px 0;">Neural growth dynamics in response to environmental field constraints</p>
-        </div>
-        <div style="text-align: center; margin: 20px 0;">
-          <img src="src/img/Method/Statistical Neural Growth.png" alt="Statistical Neural Growth" style="max-width: 350px; margin: 10px 0;" />
-          <p style="font-size: 12px; color: #666; margin: 5px 0;">Statistical models capturing probabilistic neural development patterns</p>
-        </div>
-        
-        <blockquote style="margin: 20px 0; padding: 15px 20px; background-color: #f8f9fa; font-style: italic; color: #495057;">
-          "Computational approaches to neural morphology modeling enable us to understand 
-          how neurons develop their intricate branching patterns and how these structures 
-          relate to function"
-          <footer style="margin-top: 10px; font-style: normal; font-size: 12px; color: #666;">
-            — <cite>Based on research from <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008003" target="_blank">PLoS Computational Biology</a></cite>
-          </footer>
-        </blockquote>
-        <p>
-          This morphological modeling will allow users to experiment with different neural growth 
-          parameters and observe how structural changes affect network behavior and information processing.
-        </p>
-      </div>
-      
-      <div class="project-title-subsection">Interactive Experimentation Framework</div>
-      <div class="section-content">
-        <p>
-          The ultimate goal is to create a platform where users can conduct their own neural experiments:
-        </p>
-        <ul>
-          <li><strong>Parameter Manipulation</strong> - Adjust neural properties, connection strengths, and network topology in real-time</li>
-          <li><strong>Visual Feedback</strong> - Immediate visualization of how changes affect neural dynamics and network behavior</li>
-          <li><strong>Educational Scenarios</strong> - Pre-designed experiments that demonstrate key neuroscience concepts</li>
-          <li><strong>Discovery Learning</strong> - Open-ended exploration tools that encourage users to develop their own hypotheses and test them</li>
-        </ul>
-        <p>
-          This methodology combines rigorous scientific modeling with interactive design principles, 
-          creating an educational tool that makes neuroscience both accessible and engaging for diverse audiences.
-        </p>
-      </div>
-    </div>
-    
-    <!-- Section transition -->
-    <div class="section-transition"></div>
-    
-    <!-- Computational design experiments section -->
-    <div class="section-experiments">
-      <div class="project-title">Computational Design Experiments</div>
-      <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-      
-      <!-- Network Graph Visualization - this is a subsection under Computational Design Experiments -->
-      <div class="project-title-subsection">Network Graph Visualization</div>
-      <!-- This div will contain the interactive network graph created by JavaScript -->
-      <div id="d3-container-2"></div>
-    </div>
-    
-    <!-- Section transition -->
-    <div class="section-transition"></div>
-    
-    <!-- Visual representation section -->
-    <div class="section-visual">
-      <div class="project-title">Visual Representation</div>
-      <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-    </div>
-    
-    <!-- Section transition -->
-    <div class="section-transition"></div>
-    
-    <!-- Rhetorical argument section -->
-    <div class="section-rhetorical">
-      <div class="project-title">Rhetorical Argument</div>
-      <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-    </div>
-    
-    <!-- Section transition -->
-    <div class="section-transition"></div>
-    
-    <!-- Capstone project outline section -->
-    <div class="section-capstone">
-      <div class="project-title">Brief Outline of a Potential Capstone Project</div>
-      <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-    </div>
-    
-    <!-- Section transition -->
-    <div class="section-transition"></div>
-    
-    <!-- The challenge section -->
-    <div class="section-challenge">
-      <div class="project-title">The Challenge</div>
-      <div class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-    </div>
     
   </main>
 
@@ -985,22 +557,21 @@
   <script src="js/graph-from-csv.js"></script>
   <script src="js/connectome-visualizer.js"></script>
   
-  <!-- Initialize the connectome visualizer -->
+  <!-- Initialize Visualizations -->
   <script>
-    // Initialize the connectome visualizer when the page loads
     document.addEventListener('DOMContentLoaded', () => {
-      // connectome-container가 존재하는지 확인 후 한 번만 초기화
-      if (document.getElementById('connectome-container') && !window.connectomeInitialized) {
-        window.connectomeInitialized = true; // 중복 초기화 방지 플래그
-        setTimeout(() => {
-          // Use the existing ConnectomeVisualizer class
-          new ConnectomeVisualizer();
-        }, 100);
+      // Initialize main research graph if its container exists
+      if (document.getElementById('main-research-graph-container') && typeof createMainResearchGraph === 'function') {
+        createMainResearchGraph();
+      }
+
+      // Initialize connectome visualizer if its container exists and it hasn't been initialized
+      if (document.getElementById('connectome-container') && typeof ConnectomeVisualizer === 'function' && !window.connectomeInitialized) {
+        window.connectomeInitialized = true; // Set a flag to prevent re-initialization
+        new ConnectomeVisualizer();
       }
     });
   </script>
 
 </body>
-<!-- End of body - all visible content goes above this line -->
 </html>
-<!-- End of HTML document -->
