@@ -154,22 +154,22 @@ class MainResearchGraph {
     // Add rectangles for nodes (sharp design)
     node.append('rect')
       .attr('width', d => {
-        if (d.type === 'field') return 90;      // Largest (top level)
+        if (d.type === 'field') return 120;     // Increased from 90 to 120
         if (d.type === 'keyword') return 70;    // Medium (middle level)
         return 56;                              // Smallest (bottom level)
       })
       .attr('height', d => {
-        if (d.type === 'field') return 90;      // Largest (top level)
+        if (d.type === 'field') return 120;     // Increased from 90 to 120
         if (d.type === 'keyword') return 70;    // Medium (middle level)
         return 56;                              // Smallest (bottom level)
       })
       .attr('x', d => {
-        if (d.type === 'field') return -45;     // Center the rectangle
+        if (d.type === 'field') return -60;     // Adjusted from -45 to -60 (half of 120)
         if (d.type === 'keyword') return -35;
         return -28;
       })
       .attr('y', d => {
-        if (d.type === 'field') return -45;     // Center the rectangle
+        if (d.type === 'field') return -60;     // Adjusted from -45 to -60 (half of 120)
         if (d.type === 'keyword') return -35;
         return -28;
       })
@@ -184,7 +184,7 @@ class MainResearchGraph {
       .attr('dy', '0.35em')
       .style('font-family', 'Inter, sans-serif')
       .style('font-size', d => {
-        if (d.type === 'field') return '12px';
+        if (d.type === 'field') return '16px';  // Increased from 12px to 16px
         if (d.type === 'keyword') return '10px';
         return '9px';
       })
