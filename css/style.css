@@ -2135,19 +2135,18 @@ input:focus, select:focus {
     line-height: 1.7;
 }
 
-@media print {
-  body {
-    background: white;
-    color: black;
-  }
-  
-  [class*="section-"] {
-    box-shadow: none;
-    border: 1px solid #ccc;
-    page-break-inside: avoid;
-  }
-  
-  .section-transition {
-    display: none;
-  }
+.section-future-challenges .section-content,
+.section-future-challenges .section-content p {
+  text-align: center;
+}
+
+.future-image-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.future-image-container img {
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
 }
