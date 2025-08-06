@@ -126,7 +126,7 @@ class ConnectomeVisualizer {
         const width = window.innerWidth;
         const height = window.innerHeight;
         
-        this.svg = d3.select('#network-svg')
+        this.svg = d3.select('#network-svg-methodology')
             .attr('width', width)
             .attr('height', height)
             .style('background', '#000000');
@@ -177,12 +177,11 @@ class ConnectomeVisualizer {
         // Connection strength filter (if exists)
         const connectionStrength = d3.select('#connection-strength');
         if (!connectionStrength.empty()) {
-            connectionStrength.on('input', function() {
+            connectionStrength.on('input', (event) => {
                 const strengthValue = d3.select('#strength-value');
                 if (!strengthValue.empty()) {
-                    strengthValue.text(this.value);
+                    strengthValue.text(event.target.value);
                 }
-            }).on('change', () => {
                 this.updateVisualization();
             });
         }
@@ -204,6 +203,57 @@ class ConnectomeVisualizer {
             });
         }
         
+        // New controls for the methodology connectome
+        const repulsionStrength = d3.select('#repulsion-strength');
+        if (!repulsionStrength.empty()) {
+            repulsionStrength.on('input', (event) => {
+                const strength = +event.target.value;
+                d3.select('#repulsion-value').text(strength);
+                if (this.simulation) {
+                    this.simulation.force('charge').strength(strength);
+                    this.simulation.alpha(0.3).restart();
+                }
+            });
+        }
+
+        const linkDistance = d3.select('#link-distance');
+        if (!linkDistance.empty()) {
+            linkDistance.on('input', (event) => {
+                const distance = +event.target.value;
+                d3.select('#link-distance-value').text(distance);
+                if (this.simulation) {
+                    this.simulation.force('link').distance(distance);
+                    this.simulation.alpha(0.3).restart();
+                }
+            });
+        }
+
+        const resetSimulationButton = d3.select('#reset-simulation-button');
+        if (!resetSimulationButton.empty()) {
+            resetSimulationButton.on('click', () => {
+                // Reset to initial values
+                const initialRepulsion = -300;
+                const initialDistance = 50;
+                const initialStrength = 1;
+
+                d3.select('#repulsion-strength').property('value', initialRepulsion);
+                d3.select('#repulsion-value').text(initialRepulsion);
+                d3.select('#link-distance').property('value', initialDistance);
+                d3.select('#link-distance-value').text(initialDistance);
+                d3.select('#connection-strength').property('value', initialStrength);
+                d3.select('#strength-value').text(initialStrength);
+
+                if (this.simulation) {
+                    this.simulation.force('charge').strength(initialRepulsion);
+                    this.simulation.force('link').distance(initialDistance);
+                    this.simulation.alpha(1).restart(); // Strong restart
+                }
+                
+                // Update visualization with new filter values
+                this.updateVisualization();
+            });
+        }
+        
         // Handle window resize
         window.addEventListener('resize', () => {
             this.handleResize();
@@ -214,10 +264,14 @@ class ConnectomeVisualizer {
         const width = window.innerWidth;
         const height = window.innerHeight;
         
+        // Initial values from the sliders
+        const initialRepulsion = d3.select('#repulsion-strength').node() ? +d3.select('#repulsion-strength').node().value : -300;
+        const initialDistance = d3.select('#link-distance').node() ? +d3.select('#link-distance').node().value : 50;
+
         // Create force simulation
         this.simulation = d3.forceSimulation(this.nodes)
-            .force('link', d3.forceLink(this.edges).id(d => d.id).distance(50))
-            .force('charge', d3.forceManyBody().strength(-300))
+            .force('link', d3.forceLink(this.edges).id(d => d.id).distance(initialDistance))
+            .force('charge', d3.forceManyBody().strength(initialRepulsion))
             .force('center', d3.forceCenter(width / 2, height / 2))
             .force('collision', d3.forceCollide().radius(15));
         
@@ -350,8 +404,9 @@ class ConnectomeVisualizer {
             })
             .on('end', (event, d) => {
                 if (!event.active) this.simulation.alphaTarget(0);
-                d.fx = null;
-                d.fy = null;
+                // Do not nullify fx, fy to keep the node in place after dragging
+                // d.fx = null;
+                // d.fy = null;
             });
     }
     
@@ -407,7 +462,7 @@ class ConnectomeVisualizer {
             .html(`
                 <strong>${node.name}</strong><br>
                 Connections: ${node.connections}<br>
-                Click for details
+                Click for details. Drag to position.
             `);
     }
     

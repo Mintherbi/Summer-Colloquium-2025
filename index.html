@@ -436,23 +436,48 @@
     </div>
 
     <!-- Methodology Section 1: LIF & SNN -->
-    <div class="section-methodology-lif-snn section-theory">
-        <div class="theory-container">
-            <h1 class="theory-title">1. LIF Neuron & Spiking Neural Network (SNN)</h1>
-            <div class="method-content-container">
-                <div class="method-image-container-large">
-                    <img src="src/img/Method/LIF Neuron Channel.png" alt="LIF Neuron Model" />
-                    <p class="caption">LIF Neuron Model</p>
-                </div>
-                <div class="method-image-container-large">
-                    <img src="src/img/Method/Spiking Neural Network.png" alt="Spiking Neural Network" />
-                    <p class="caption">Spiking Neural Network</p>
-                </div>
-            </div>
-            <div class="theory-content">
-                <p>The simulation starts with computationally efficient Leaky Integrate-and-Fire (LIF) neurons. These are assembled into Spiking Neural Networks (SNNs), where neurons communicate through discrete, timed spikes, capturing the temporal dynamics of real neural processing.</p>
-            </div>
+    <div class="section-video">
+      <div class="video-container-fullscreen">
+        <video 
+          controls 
+          autoplay 
+          muted 
+          loop
+          style="width: 100%; height: 100%; object-fit: cover;">
+          <source src="src/img/Methodology/Spiking Neural Network.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        
+        <!-- Video Content Overlay -->
+        <div class="video-overlay-content">
+          <div class="project-title">1. LIF Neuron & Spiking Neural Network (SNN)</div>
+          <div class="section-content">
+            <div class="project-title-subsection">Computationally Efficient Neural Modeling</div>
+            <p>
+              The simulation starts with computationally efficient Leaky Integrate-and-Fire (LIF) neurons. 
+              These simplified yet biologically plausible models capture the essential dynamics of neural 
+              membrane potential, providing the perfect balance between computational efficiency and 
+              biological realism for interactive exploration.
+            </p>
+            
+            <div class="project-title-subsection">Spiking Neural Networks</div>
+            <p>
+              LIF neurons are assembled into Spiking Neural Networks (SNNs), where neurons communicate 
+              through discrete, timed spikes rather than continuous signals. This approach captures 
+              the temporal dynamics of real neural processing, revealing how timing and synchronization 
+              drive complex neural computations and emergent behaviors.
+            </p>
+            
+            <div class="project-title-subsection">Temporal Dynamics</div>
+            <p>
+              Unlike traditional artificial neural networks, SNNs preserve the crucial temporal dimension 
+              of neural activity. This enables the simulation of realistic neural phenomena such as 
+              spike-timing dependent plasticity, oscillations, and the precise timing codes that 
+              underlie biological information processing.
+            </p>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Methodology Section 2: Latent Space -->
@@ -479,6 +504,63 @@
             <h1 class="theory-title">3. Neural Connection Visualization</h1>
             <div class="theory-content">
                 <p>Finally, the structural connections of the neural network (the connectome) are visualized. This interactive graph allows for exploring the intricate web of connections, filtering by neuron type, and understanding the static architecture that gives rise to the dynamic activity.</p>
+            </div>
+        </div>
+        <div id="connectome-controls-container">
+            <div class="control-group">
+                <label for="repulsion-strength">Repulsion Strength</label>
+                <input type="range" id="repulsion-strength" min="-5000" max="0" value="-300" step="10">
+                <span id="repulsion-value">-300</span>
+            </div>
+            <div class="control-group">
+                <label for="link-distance">Link Distance</label>
+                <input type="range" id="link-distance" min="10" max="200" value="50" step="5">
+                <span id="link-distance-value">50</span>
+            </div>
+            <div class="control-group">
+                <label for="connection-strength">Min Connection Strength</label>
+                <input type="range" id="connection-strength" min="1" max="20" value="1" step="1">
+                <span id="strength-value">1</span>
+            </div>
+            <div class="control-group">
+                <button id="reset-simulation-button">Reset Simulation</button>
+            </div>
+            <div class="legend-section">
+                <h3>Neurotransmitter Legend</h3>
+                <div class="neurotransmitter-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #ff0000;"></div>
+                        <span>Excitatory</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #0000ff;"></div>
+                        <span>Inhibitory</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #00ff00;"></div>
+                        <span>Acetylcholine</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #ffff00;"></div>
+                        <span>GABA</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #ff00ff;"></div>
+                        <span>Glutamate</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #00ffff;"></div>
+                        <span>Dopamine</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #ffa500;"></div>
+                        <span>Serotonin</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #ffffff;"></div>
+                        <span>Unknown</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -564,7 +646,12 @@
         createMainResearchGraph();
       }
 
-      // Initialize connectome visualizer if its container exists and it hasn't been initialized
+      // Initialize connectome visualizer for the methodology section
+      if (document.getElementById('network-svg-methodology')) {
+        new ConnectomeVisualizer();
+      }
+
+      // Initialize old connectome visualizer if its container exists and it hasn't been initialized
       if (document.getElementById('connectome-container') && typeof ConnectomeVisualizer === 'function' && !window.connectomeInitialized) {
         window.connectomeInitialized = true; // Set a flag to prevent re-initialization
         new ConnectomeVisualizer();
